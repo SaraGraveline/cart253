@@ -1,32 +1,36 @@
-/**
-Title of Project
-Author Name
+/*****************************************************
+Drawing Experiments
+Sara Graveline
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
-*/
+Experiments with p5's drawing and color funtions.
+
+Currently draws a flower.
+*******************************************************/
 
 "use strict";
 
 
-/**
-Description of preload
-*/
+//[preload()
+//
+//does nothing
 function preload() {
 
 }
 
 
-/**
-Description of setup
-*/
+//setup()
+//
+//Draws a flower on the canvas.
 function setup() {
   createCanvas (500, 500);
 
+  //set the background to black.
   background(0, 0, 0);
 
+  //set all the ellipses to corner.
   ellipseMode(CORNER);
 
+  //all of the yellow ellipses and fills without the stroke.
   noStroke();
   fill(161, 161, 2);
   ellipse(250, 250, 100, 100);
@@ -41,6 +45,7 @@ function setup() {
   fill(247, 247, 193);
   ellipse(250, 250, 10, 10);
 
+  //all of the blue ellipses and fills without the stroke.
   noStroke();
   fill(7, 92, 163);
   ellipse(150, 150, 100, 100);
@@ -55,6 +60,7 @@ function setup() {
   fill(173, 214, 247);
   ellipse(240, 240, 10, 10);
 
+  //all of the green ellipses and fills without the stroke.
   noStroke();
   fill(6, 148, 79);
   ellipse(250, 150, 100, 100);
@@ -69,6 +75,7 @@ function setup() {
   fill(204, 255, 230);
   ellipse(250, 240, 10, 10);
 
+  //all of the red ellipses and fills without the stroke.
   noStroke();
   fill(173, 7, 7);
   ellipse(150, 250, 100, 100);
@@ -86,9 +93,10 @@ function setup() {
 }
 
 
-/**
-Description of draw()
-*/
+
+//draw()
+//
+//Does nothing.
 function draw() {
 
 }
