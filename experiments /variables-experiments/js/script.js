@@ -33,4 +33,9 @@ function draw() {
   background(backgroundShade);
   circle.x += circle.speed;
   ellipse(circle.x, circle.y, circle.size);
+
+
+//debugging variales 
+  console.log(`circle.x: ${circle.x} circle.y: ${circle.y} circle.size: ${circle.size} circle.speed: ${circle.speed}`);
+  //console.log("circle.y: " + circle.y);
 }
