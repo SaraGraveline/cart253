@@ -8,12 +8,14 @@ This project is about learning how to use variables.
 "use strict";
 //creating Variables
 let backgroundShade = 0;
-let circleX = 250;
-let circleY = 250;
-let circleSize = 200;
-let circleSpeed = 2;
-let circleAcceleration = 0.25;
 
+//using javescript object
+let circle = {
+  x: 0,
+  y: 250,
+  size: 200,
+  speed: 2,
+};
 
 //Setup()
 //
@@ -29,7 +31,6 @@ function setup() {
 function draw() {
   backgroundShade = backgroundShade + 1;
   background(backgroundShade);
-  circleX += circleSpeed
-  circleX += circleAcceleration;
-  ellipse(circleX, circleY, circleSize);
+  circle.x += circle.speed;
+  ellipse(circle.x, circle.y, circle.size);
 }
