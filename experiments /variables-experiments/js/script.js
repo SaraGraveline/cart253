@@ -1,33 +1,25 @@
 /**
-Title of Project
-Author Name
+Experiments with Variables
+Sara Graveline
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+This project is about learning how to use variables.
 */
 
 "use strict";
 
-
-/**
-Description of preload
-*/
-function preload() {
-
-}
-
-
-/**
-Description of setup
-*/
+//Setup()
+//
+//Makes a canvas
 function setup() {
-
+  createCanvas(windowWidth, windowHeight);
 }
 
 
-/**
-Description of draw()
-*/
+// Draw()
+//
+//shows different colors, and perfectly centered rectangle.
 function draw() {
-
+  background(mouseX, mouseY, 0);
+  rectMode(CENTER);
+  rect(width / 2, height / 2, 100, 100);
 }
