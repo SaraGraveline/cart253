@@ -1,3 +1,5 @@
-# Template p5 project
+# I like to move it
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Sara Graveline
+
+This project uses variables to create a happy face. It uses constrain () to control the speed and size of the shapes. It uses map() on the background color to change the color. As for the fill in these three shapes, it uses mouseX and mouseY variables. To create the trapezoid, it uses beginShape.
