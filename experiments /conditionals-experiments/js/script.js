@@ -1,33 +1,56 @@
 /**
-Title of Project
-Author Name
+Learning about conditionals
+Sara Graveline
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+This document is about experimenting with conditionals.
 */
 
 "use strict";
 
+//Creating variables
+let backgroundShade = 0;
 
-/**
-Description of preload
-*/
-function preload() {
-
+let circle = {
+  x: 0,
+  y: 250,
+  size: 100,
+  speed: 5,
 }
 
 
-/**
-Description of setup
-*/
+//Setup()
+//
 function setup() {
-
+  createCanvas (500, 500);
 }
 
 
-/**
-Description of draw()
-*/
+//Draw()
+//
 function draw() {
+  background (backgroundShade);
 
+//moving the circle
+  circle.x += circle.speed;
+
+//constraining the circle from going outside of the canvas
+  if (circle.x > width) {
+    circle.speed = -circle.speed;
+  }
+
+  if (circle.x < 0) {
+    circle.speed = -circle.speed;
+  }
+
+//changing the color of the circle
+  if (mouseY < height/2) {
+    fill(255, 0, 0);
+  }
+
+  if (mouseY > height/2) {
+    fill(0, 0, 255);
+  }
+
+//drawing the circle
+  ellipse (circle.x, circle.y, circle.size);
 }
