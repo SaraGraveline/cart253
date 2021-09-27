@@ -8,16 +8,32 @@ This document is about experimenting with conditionals.
 "use strict";
 
 //creating variables
-let caterpillar = {
-  x: 100,
-  y: 250,
-  segmentSize: 50
-}
+let circle = {
+  x: undefined,
+  y: undefined,
+  size: 100
+};
+
+  let dangerZone = {
+    x: 250,
+    y: 250,
+    size: 200
+  };
 
 //Setup()
 //
 function setup() {
   createCanvas (500, 500);
+
+  circle.x = random(0, width);
+  circle.y = random(0, height);
+
+  let d = dist(circle.x,circle.y, dangerZone.x, dangerZone.y);
+  while (d <circle.size/2 + dangerZone.size/2) {
+    circle.x = random(0, width);
+    circle.y = random(0, height);
+    d = dist(circle.x, circle.y, dangerZone.x, dangerZone.y);
+  }
 }
 
 
@@ -25,27 +41,15 @@ function setup() {
 //
 function draw() {
   background(0);
+
+  //danger zone
+  noFill();
+  stroke(255, 0, 0);
+  ellipse(dangerZone.x, dangerZone.y, dangerZone.size);
+
+  //random circle
+  fill(150);
   noStroke();
-  fill(100, 200, 100);
-
-  //let x = caterpillar.x;
-  //let numSegments = 5;
-  //let segmentDrawn = 0;
-  //
-  //while (segmentDrawn < numSegments) {
-  //  ellipse(x, caterpillar.y, caterpillar.segmentSize);
-  //  x += 40;
-  //  segmentDrawn += 1;
-  // }
-
- // or smaller version is loops is
-
- let x = caterpillar.x;
- let numSegments = 8;
-
- for (let i = 0; i < numSegments; i++) {
-   ellipse (x, caterpillar.y, caterpillar.segmentSize);
-   x += 40;
- }
+  ellipse(circle.x, circle.y, circle.size);
 
 }
