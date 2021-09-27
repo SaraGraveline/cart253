@@ -7,16 +7,8 @@ This document is about experimenting with conditionals.
 
 "use strict";
 
-//Creating variables
-let backgroundShade = 0;
-
-let circle = {
-  x: 0,
-  y: 250,
-  size: 100,
-  speed: 1,
-}
-
+//creating variables
+let displayCircle = false;
 
 //Setup()
 //
@@ -28,42 +20,14 @@ function setup() {
 //Draw()
 //
 function draw() {
-  background (backgroundShade);
 
-//moving the circle
-  circle.x += circle.speed;
+  background(0);
 
-  fill(255, 255, 255);
-
-
-// learned about the if... or... then...
-  if (circle.x < width/3 || circle.x > 2 * width/3) {
-      fill(255, 0, 0);
+  if (mouseIsPressed) {
+    displayCircle = true;
   }
-
-/*
-// learned about the if... and... then...
-  if (circle.x > width/3 && circle.x < 2 * width/3) {
-      fill(255, 0, 0);
+  if (displayCircle) {
+    ellipse(250, 250, 100, 100);
   }
-*/
-
-
-  //drawing the circle
-    ellipse (circle.x, circle.y, circle.size);
-
-/*
-  // learned about the if... else if... then else...
-  if (mouseX < width/3) {
-    fill(255, 0, 0);
-  }
-  else if (mouseX < 2 * width/3) {
-    fill(0, 255, 0);
-  }
-
-  else {
-    fill(0,0,255);
-  }
-*/
 
 }
