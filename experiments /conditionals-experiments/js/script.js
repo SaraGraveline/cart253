@@ -14,7 +14,7 @@ let circle = {
   x: 0,
   y: 250,
   size: 100,
-  speed: 5,
+  speed: 1,
 }
 
 
@@ -33,24 +33,37 @@ function draw() {
 //moving the circle
   circle.x += circle.speed;
 
-//constraining the circle from going outside of the canvas
-  if (circle.x > width) {
-    circle.speed = -circle.speed;
+  fill(255, 255, 255);
+
+
+// learned about the if... or... then...
+  if (circle.x < width/3 || circle.x > 2 * width/3) {
+      fill(255, 0, 0);
   }
 
-  if (circle.x < 0) {
-    circle.speed = -circle.speed;
+/*
+// learned about the if... and... then...
+  if (circle.x > width/3 && circle.x < 2 * width/3) {
+      fill(255, 0, 0);
   }
+*/
 
-//changing the color of the circle
-  if (mouseY < height/2) {
+
+  //drawing the circle
+    ellipse (circle.x, circle.y, circle.size);
+
+/*
+  // learned about the if... else if... then else...
+  if (mouseX < width/3) {
     fill(255, 0, 0);
   }
-
-  if (mouseY > height/2) {
-    fill(0, 0, 255);
+  else if (mouseX < 2 * width/3) {
+    fill(0, 255, 0);
   }
 
-//drawing the circle
-  ellipse (circle.x, circle.y, circle.size);
+  else {
+    fill(0,0,255);
+  }
+*/
+
 }
