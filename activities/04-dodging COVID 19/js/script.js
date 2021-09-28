@@ -2,8 +2,8 @@
 Activity 04: Dodging COVID-19
 Sara Graveline
 
-The idea for this activity is to make a simulation of COVID-19. The red circles represents covid-19.
-The goal of this simulation is to let the user control their circles with the postion of the mouse.
+The idea for this activity is to make a simulation of COVID-19. The red circle represents covid-19.
+The goal of this simulation is to let the user control their circle with the position of the mouse.
 When the Covid-19/red circle comes in contact with the user circle, the simulation stops.
 
 Plan:
