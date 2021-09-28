@@ -105,6 +105,9 @@ function draw() {
   //Draws the covid 19 circle with the covid19 variable.
   ellipse(covid19.x, covid19.y, covid19.size);
 
+  //Draws the covid 19 circle with the covid19 variable.
+  ellipse(covid19.x, covid19.y, covid19.size);
+
   //Draws the user circle by using the user variable.
   fill(user.fill);
   ellipse(user.x, user.y, user.size);
