@@ -1,5 +1,7 @@
-# Activity 04: Dodging COVID-19
+# Exercise 2: Dodging the bounce balls
 Sara Graveline
 
-The idea for this activity is to make a simulation of COVID-19. The red circle represents covid-19 and while circle represents the user circle.
-The goal of this simulation is to let the user control their circle with their position of the mouse. However, when the Covid-19 circle comes in contact with the user circle, the simulation stops and so does the static background. This code uses variables, javascript object, if statements, noLoop, noCursor, loop, and dist() function to create this simulation. 
+The idea for this activity is to make a simulation of bounce balls. The different colors represents bounce balls and white circle represents the user's circle.
+The goal of this simulation is to let the user control their circle with their position of the mouse. However, when any bounce balls comes in contact with the user circle, the simulation stops. When the mouse move left side of the screen, one picture show whereas if the mouse move to the right side, another image shows. This code uses variables, if statements, if and else statement, noLoop, loadImage, and dist() function to create this simulation.
+
+The end goal is to have fun and be happy.

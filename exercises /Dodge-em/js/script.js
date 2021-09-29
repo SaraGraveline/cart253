@@ -1,3 +1,14 @@
+/**
+Exercise 2: Dodging the bounce balls
+Sara Graveline
+
+The idea for this activity is to make a simulation of bounce balls and user control one circle. The different color circles represents randomness.
+The goal of this simulation is to let the user control their circle with the position of the mouse.
+When the bounce balls comes in contact with the user circle, the simulation stops. When the mouse move left side of the screen, one picture show whereas if the mouse move to the right side, another image shows.
+The end goal is to have fun and be happy.
+*/
+
+
 "use strict";
 
 
