@@ -31,8 +31,8 @@ let userControl = {
 //
 //this function contains the two photo that are used in the background.
 function preload() {
-  leftSide = loadImage(`assets/images/left-side.png`);
-  rightSide = loadImage(`assets/images/right-side.png`);
+  leftSide = loadImage(`assets/images/texture-left.jpg`);
+  rightSide = loadImage(`assets/images/texture-right.jpg`);
 };
 
 
@@ -55,7 +55,7 @@ function setup () {
 //
 //this function allows the images to switch from right side to left with the mouse position.
 function draw() {
-  background(0, 30);
+  background(0, 16);
 
   //making the image center
   imageMode(CENTER);
