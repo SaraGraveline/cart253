@@ -1,114 +1,105 @@
-/**
-Activity 04: Dodging COVID-19
-Sara Graveline
-
-The idea for this activity is to make a simulation of COVID-19. The red circle represents covid-19.
-The goal of this simulation is to let the user control their circle with the position of the mouse.
-When the Covid-19/red circle comes in contact with the user circle, the simulation stops.
-
-Plan:
-  * Create covid-19 circle and make it move
-  * Make the covid-19 return back with if statment
-  * Create the user circle
-  * Check the circle overlap
-  * Hide the cursor by using noCursor
-*/
-
 "use strict";
 
-//creating the covid-19 variable with position and velocity properties and fill as javascript object.
-let covid19 = {
+
+// creating variable for the background photos
+let leftSide = undefined;
+let rightSide = undefined;
+
+//creating the variable for the simualtion and these three line code is taken from codeacademy.
+let t;
+let x; // X position
+let y; // Y position
+
+//variables for bounce balls
+let bounce = {
   x: 0,
-  y: 250,
-  size: 100,
-  vx: 0,
-  vy: 0,
-  speed: 5,
-  fill: {
-    r: 255,
-    b: 0,
-    g: 0
-  }
+  y: 0,
+  size: 50,
+  t: 0
 };
 
-//Creates the user variable with its size and fill properties.
-let user = {
-  x: 250,
-  y: 250,
-  size: 100,
+//variables for user circle
+let userControl = {
+  x: 0,
+  y: 0,
+  size: 50,
   fill: 255
+}
+
+
+// preload()
+//
+//this function contains the two photo that are used in the background.
+function preload() {
+  leftSide = loadImage(`assets/images/left-side.png`);
+  rightSide = loadImage(`assets/images/right-side.png`);
 };
 
 
-/** setup()
-Creating the canvas and getting things ready for the covid 19 circle to start drawing and moving.
-*/
-function setup() {
+// setup()
+//
+//this function creates the canvas.
+function setup () {
+  createCanvas(windowWidth, windowHeight);
 
-  //creating the canvas
-  createCanvas (windowWidth, windowHeight);
-
-  //setting the covid19 object to random number on y axis.
-  covid19.y = random(0, height);
-
-  //setting the covid19 vx to match the speed property so it moves to the right.
-  covid19.vx = covid19.speed;
-
-  //takes out the mouse cursor
-  noCursor();
-};
-
-
-/** draw()
-Creates the random static background for visual flourish, creates the movement and draws covid19 and user circle.
-*/
-function draw() {
-  //makes the background color
+  //sets the background to black
   background(0);
+  t = 0;
 
-  //draws the static background with loop and x and y variable.
-  for (let i = 0; i < 1000; i++) {
-    let x = random(0, width);
-    let y = random(0, height);
-    stroke(255);
-    point(x,y);
-  }
+  //draws no stroke
+  noStroke();
 
-  //Updating the covid 19 to the standard movement code.
-  covid19.x += covid19.vx;
-  covid19.y += covid19.vy;
+};
 
-  //writes the if statement so the covid 19 circle go back to the left when it leaves the canvas.
-  if (covid19.x > width) {
-    covid19.x = 0;
-    covid19.y = random(0, height);
+// draw()
+//
+//this function allows the images to switch from right side to left with the mouse position.
+function draw() {
+  background(0, 30);
+
+  //making the image center
+  imageMode(CENTER);
+
+  //using the if and else statement to allow the background images to switch from left to right with the mouse position.
+  if (mouseX < width/2) {
+    //leftSide
+    image(leftSide, width/2, height/2, windowWidth, windowHeight);
+  } else {
+    //rightSide
+    image(rightSide, width/2, height/2, windowWidth, windowHeight);
   };
 
-  //Sets the users mouse position and movenment.
-  user.x = mouseX;
-  user.y = mouseY;
+  //setting the ellipse x and y position to be random
+  bounce.x = random(0, width);
+  bounce.y = random(0, height);
 
-  //Checks for catching covid-19 with variable.
-  let d = dist(user.x, user.y, covid19.x, covid19.y);
+  //setting the fill to be a random color
+  fill(random(0, 256), random(0, 256), random(0, 256));
 
-  //checks for cataching covid-19 with if statement and also code line where the simulation stops if both circles touch each other.
-  if (d < covid19.size/2 + user.size/2) {
+
+  //setting the x and y position for the bouncing balls (codeacademy)
+  x = width * noise(t+15);
+  y = height * noise (t+5);
+
+  //setting the user control mouse
+  userControl.x = mouseX;
+  userControl.y = mouseY;
+
+  //Checks for catching bounce balls with variable.
+  let d = dist(userControl.x, userControl.y, bounce.x, bounce.y);
+
+  //checks for catching bounce balls with if statement and also code line where the simulation stops if both circles touch each other.
+  if (d < bounce.size/2 + userControl.size/2) {
     noLoop();
   }
 
-  //Sets the fill property on covid 19 circle.
-  fill(covid19.fill.r, covid19.fill.b, covid19.fill.g);
+  //creating the ellipse from bounce balls variables
+  ellipse(bounce.x, bounce.y, 50, 50);
 
-  //Sets no stroke on the covid 19
-  noStroke();
+  //fill for the user ellipse
+  fill(255);
 
-  //Draws the covid 19 circle with the covid19 variable.
-  ellipse(covid19.x, covid19.y, covid19.size);
+  //creating the user ellipse with the variables
+  ellipse(userControl.x, userControl.y, userControl.size);
 
-  //Draws the covid 19 circle with the covid19 variable.
-  ellipse(covid19.x, covid19.y, covid19.size);
-
-  //Draws the user circle by using the user variable.
-  fill(user.fill);
-  ellipse(user.x, user.y, user.size);
-}
+};
