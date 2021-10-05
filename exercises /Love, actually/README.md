@@ -10,3 +10,8 @@ The user-control circle is the yellow circle which moves with the arrow keys on 
 To start the game the user has to press on the mouse to move to the simulation state.
 If the user-control circle touches the pink circles, the game ends and the following message, `Oops, you failed :(.` And the user has to reload the page to start again.
 However, if the user successfully find its way and touches the purple circle, the game ends with this message, `Hooray!!! you won`.
+
+
+https://github.com/SaraGraveline/cart253/tree/main/exercises%20/Love,%20actually 
+
+https://saragraveline.github.io/cart253/exercises%20/Love,%20actually/
