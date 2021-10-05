@@ -28,19 +28,16 @@ let nonUser = {
    speed: 5
  };
 
- //creating the variable for the simualtion and these three line code is taken from codeacademy.
- let t;
- let x; // X position
- let y; // Y position
-
  //variables for bounce balls
  let bounce = {
-   x: 0,
-   y: 0,
+   x: 50,
+   y: 50,
    size: 50,
-   t: 0
  };
 
+let titleString = `Don't get caught by negativity!`;
+let endingString1 = `oops, you failed! :(`;
+let endingString2 = `Hooray!!! Be happy and positive`;
 
 //setup
 //
@@ -67,10 +64,11 @@ function draw() {
   arrowControl(); //this calls on the function `arrowControl` which draws and allows the user-control circle move with arrows.
   moveUserControl(); //this calls on function `moveUserControl` that moves the yellow circle.
   displayUserControl (); //this calls on the function `displayUserControl` which draws the yellow circle.
+  catchingPurpleCircle (); ////this calls on the function `catchingPurpleCircle` which stops the game if the bounce ball touches the purple circle/nonUser circle.
 
   //Bounce balls functions.
   catchingYellowCircle (); //this calls on the function `catchingYellowCircle` which stops the game if the bounce ball touches the yellow circle/userControl circle.
-  displayBounceBalls (); //this calls on function `displayBounceBalls` which draws the bounce balls and creates random colors.
+  displayBounceBalls (); //this calls on function `displayBounceBalls` which draws the bounce balls and creates pink colors.
   moveBounceballs ();  //this calls on function `moveBounceballs` that bounces the balls.
 
 
@@ -157,30 +155,41 @@ function draw() {
   };
 
 
-////////////////////////////////////////////////////////////////////////
-/////////////////////////////Bouncing balls/////////////////////////////
-////////////////////////////////////////////////////////////////////////
+  //this function checks if the yellow circle touches the purple circle or not. If they do then the game stops.
+  function catchingPurpleCircle () {
+    //Checks for catching yellow circlelce with variable.
+    let d = dist(nonUser.x, nonUser.y, userControl.x, userControl.y);
 
-    //this function checks if the bounce balls touches the yellow circle or not. If they do then the game stops.
-    function catchingYellowCircle () {
-      //Checks for catching bounce balls with variable.
-      let d = dist(userControl.x, userControl.y, bounce.x, bounce.y);
-
-      //checks for catching bounce balls with if statement and also code line where the simulation stops if both circles touch each other.
-      if (d < bounce.size/2 + userControl.size/2) {
-        noLoop();
-      };
-    }
-
-    //This function moves the bouncing balls randomly on the x and y axis.
-    function moveBounceballs () {
-      bounce.x = random(0, width);
-      bounce.y = random(0, height);
+    //checks for catching yellow circle with if statement and also code line where the simulation stops if both circles touch each other.
+    if (d < userControl.size/2 + nonUser.size/2) {
+      noLoop();
     };
+  };
 
-    //This function display/draws the userControl/yellow circle on the canvas and postion it on 200 x-axis and 200 y-axis.
-    function displayBounceBalls () {
-      fill(255,79,100); //setting the fill to be a random color.
-      noStroke(); //nostrokes
-      ellipse(bounce.x, bounce.y, 50, 50); //draws the yellow circle
+////////////////////////////////////////////////////////////////////////
+//////////////////////Bouncing balls/ pink circles /////////////////////
+////////////////////////////////////////////////////////////////////////
+
+  //this function checks if the bounce balls touches the yellow circle or not. If they do then the game stops.
+  function catchingYellowCircle () {
+    //Checks for catching bounce balls with variable.
+    let d = dist(userControl.x, userControl.y, bounce.x, bounce.y);
+
+    //checks for catching bounce balls with if statement and also code line where the simulation stops if both circles touch each other.
+    if (d < bounce.size/2 + userControl.size/2) {
+      noLoop();
     };
+  };
+
+  //This function moves the bouncing balls randomly on the x and y axis.
+  function moveBounceballs () {
+    bounce.x = random(0, width);
+    bounce.y = random(0, height);
+  };
+
+  //This function display/draws the userControl/yellow circle on the canvas and postion it on 200 x-axis and 200 y-axis.
+  function displayBounceBalls () {
+    fill(255,79,100); //setting the fill to be a pink color.
+    noStroke(); //nostrokes
+    ellipse(bounce.x, bounce.y, 50, 50); //draws the yellow circle
+  };
