@@ -12,10 +12,6 @@ The end goal is to have fun and be happy.
 "use strict";
 
 
-// creating variable for the background photos
-let leftSide = undefined;
-let rightSide = undefined;
-
 //creating the variable for the simualtion and these three line code is taken from codeacademy.
 let t;
 let x; // X position
@@ -33,18 +29,10 @@ let bounce = {
 let userControl = {
   x: 0,
   y: 0,
-  size: 50,
+ size: 50,
   fill: 255
 }
 
-
-// preload()
-//
-//this function contains the two photo that are used in the background.
-function preload() {
-  leftSide = loadImage(`assets/images/texture-left.jpg`);
-  rightSide = loadImage(`assets/images/texture-right.jpg`);
-};
 
 
 // setup()
@@ -67,18 +55,6 @@ function setup () {
 //this function allows the images to switch from right side to left with the mouse position.
 function draw() {
   background(0, 16);
-
-  //making the image center
-  imageMode(CENTER);
-
-  //using the if and else statement to allow the background images to switch from left to right with the mouse position.
-  if (mouseX < width/2) {
-    //leftSide
-    image(leftSide, width/2, height/2, windowWidth, windowHeight);
-  } else {
-    //rightSide
-    image(rightSide, width/2, height/2, windowWidth, windowHeight);
-  };
 
   //setting the ellipse x and y position to be random
   bounce.x = random(0, width);
