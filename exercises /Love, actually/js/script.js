@@ -95,15 +95,20 @@ function title() {
 
 //simulation function with all the other functions.
 function simulation() {
-  move();
-  displayNonUser();
-  arrowControl();
-  moveUserControl();
-  displayUserControl();
-  catchingPurpleCircle();
-  catchingYellowCircle();
-  displayBounceBalls();
-  moveBounceballs();
+  //Non-user/medium purple circle's functions
+  move(); //this calls on function `move` that moves the purple circle.
+  displayNonUser(); //this calls on the function `displayNonUser` which draws the purple circle.
+
+  //User-control/yellow circle's functions.
+  arrowControl(); //this calls on the function `arrowControl` which draws and allows the user-control circle move with arrows.
+  moveUserControl(); //this calls on function `moveUserControl` that moves the yellow circle.
+  displayUserControl(); //this calls on the function `displayUserControl` which draws the yellow circle.
+  catchingPurpleCircle(); //this calls on the function `catchingPurpleCircle` which stops the game if the bounce ball touches the purple circle/nonUser circle.
+
+  //Bounce balls functions.
+  catchingYellowCircle(); //this calls on the function `catchingYellowCircle` which stops the game if the bounce ball touches the yellow circle/userControl circle.
+  displayBounceBalls(); //this calls on function `displayBounceBalls` which draws the bounce balls and creates pink colors.
+  moveBounceballs(); //this calls on function `moveBounceballs` that bounces the balls.
 };
 
 //ending 1 where the user loses because they touched the pink circles.
