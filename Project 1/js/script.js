@@ -12,10 +12,12 @@ author, and this description to match your project!
 //variable for the tail (user-control)
 let tail = [];
 let policeBadge;
+let diamond;
 
 function preload() {
   policeBadge=loadImage('assets/images/police badge-02.png');
-}
+  diamond=loadImage('assests/images/diamond-03.png');
+};
 
 
 // Setup function
@@ -34,6 +36,8 @@ function setup() {
 function draw() {
   background(0);
 
+//---------------- user-control - Police badge ---------------
+
   // Creates the other circles at the end of the tail.
   tail.push({x: mouseX, y: mouseY});
 
@@ -48,6 +52,10 @@ function draw() {
      let y = tail[i].y;
 
      // and larger closer to the mouse
-    image(policeBadge, x, y, 174 + i , 149 + i);
+    image(policeBadge, x, y, 174 + i , 142 + i);
   };
+
+
+
+
 };
