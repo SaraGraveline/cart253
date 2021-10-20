@@ -37,10 +37,10 @@ let userControl = {
 // preload()
 //
 //this function contains the two photo that are used in the background.
-function preload() {
-  leftSide = loadImage(`assets/images/texture-left.jpg`);
-  rightSide = loadImage(`assets/images/texture-right.jpg`);
-};
+//function preload() {
+  //leftSide = loadImage(`assets/images/texture-left.jpg`);
+  //rightSide = loadImage(`assets/images/texture-right.jpg`);
+//};
 
 
 // setup()
@@ -70,10 +70,10 @@ function draw() {
   //using the if and else statement to allow the background images to switch from left to right with the mouse position.
   if (mouseX < width/2) {
     //leftSide
-    image(leftSide, width/2, height/2, windowWidth, windowHeight);
+    //image(leftSide, width/2, height/2, windowWidth, windowHeight);
   } else {
     //rightSide
-    image(rightSide, width/2, height/2, windowWidth, windowHeight);
+    //image(rightSide, width/2, height/2, windowWidth, windowHeight);
   };
 
   //setting the ellipse x and y position to be random

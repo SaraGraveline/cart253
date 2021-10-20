@@ -14,15 +14,17 @@ let badge = [];
 
 //variable for the diamond
 let diamond = {
-  x: 450,
-  y: 150,
+  x: undefined,
+  y: undefined,
   size: 50,
 };
 
+
 //variable for theif
 let theif = []; // the theif circles variables
-let posOfX = 850; //postion of the x where they all need to go
-let posOfY = 450; //postion of the y where they all need to go
+let	mainTurrent;
+let posOfX = 3500; //postion of the x where they all need to go
+let posOfY = 2000; //postion of the y where they all need to go
 let theifAmount = 0; //the amount of the theif circle appares.
 let theifSpeedMultiplier = 2; //the spawn/speed of the theif circle
 let theifSizeMultiplier = 2; //size of the theif circle
@@ -40,7 +42,7 @@ let thief;
 function preload() {
   policeBadge=loadImage('assets/images/police badge-02.png');
   diamondImg=loadImage('assets/images/diamond-03.png');
-  thiefImg=loadImage(`assets/images/thief-04.png`);
+  //thiefImg=loadImage(`assets/images/thief-04.png`);
 };
 
 
@@ -49,6 +51,8 @@ function preload() {
 // Draws the canvas
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  angleMode(DEGREES);
+  mainTurrent = new turrent(300,300);
   noStroke();  //no stroke
   noCursor(); //no cursor
 };
@@ -62,9 +66,12 @@ function draw() {
   background(0); //black bg
 
 
+
+
 //--------------- Displays the Diamond img ---------------
   //image of the diamond
-  image(diamondImg, diamond.x, diamond.y, 850, 600);
+  imageMode(CENTER);
+  image(diamondImg, width/2, height/2, 2400, 1600);
 
 
 
@@ -84,7 +91,7 @@ function draw() {
      let y = badge[i].y;
 
   // displays the policeBadge image.
-    image(policeBadge, x, y, 174 + i , 142 + i);
+    image(policeBadge, x, y, 404 + i , 340 + i);
   };
 
 //---------------Thiefs - Non User-controled-----------
@@ -109,14 +116,18 @@ for (var i = 0; i < theif.length; i++){
     };
 };
 
-//speed and the size of theif circles
-theifSpeedMultiplier += 0.002;
-  if (theifSizeMultiplier < 8){
-    theifSizeMultiplier += 0.002;
-  };
+  //speed and the size of theif circles
+  theifSpeedMultiplier += 0.001;
+    if (theifSizeMultiplier < 5){
+      theifSizeMultiplier += 0.001;
+    };
+
+    //------------------------------------------HERO-AND-HERO-DED---------------------------------------a
+
+	if (mainTurrent.hitScan()){
+		gameOver();
+	};
 };
-
-
 
 // the class function of the theif ballon (by TANMAYA15 - editer p5js.org)
 class balloon{
@@ -177,4 +188,49 @@ class balloon{
 	outSide(){
 		return(this.x > width+10 || this.x < -10 || this.y > height+10 || this.y < -10);
 	};
+
+  myX(){
+		return this.x;
+	}
+
+	myY(){
+		return this.y;
+	}
+
+	myR(){
+		return this.r;
+	}
+};
+
+class turrent{
+	constructor(){
+	}
+	hitScan(){
+		for (var i = 0; i < thief.length; i++){
+			var collideOrNot = collideCircleCircle(posOfX, posOfY, 30, thief[i].myX(), thief[i].myY(), thief[i].myR())
+			if (collideOrNot){
+				return true;
+			}
+		}
+		return false;
+	}
+};
+
+
+function gameOver(){
+	push()
+
+	print("DED");
+	noStroke();
+	fill(20)
+	rect(0,200,600,200)
+
+	textFont('Georgia');
+	textAlign(CENTER);
+	textSize(50);
+	fill(170,20,20);
+	text("YOU DIED",300,300)
+
+	pop();
+	noLoop();
 };
