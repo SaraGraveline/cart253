@@ -7,6 +7,8 @@ let thief;
 
 let badge;
 
+let astron;
+
 let player = {
   x: 0,
   y: 0,
@@ -30,6 +32,8 @@ function preload () {
 
   thief = loadImage(`assets/images/thief1.png`);
   badge = loadImage(`assets/images/police badge-02.png`);
+
+  astron = loadFont(`assets/fonts/Astron.ttf`);
 
 
 }
@@ -59,7 +63,7 @@ function startScreen(){
   fill(255, 0, 150)
   textAlign(CENTER);
   textSize(30);
-  textFont(`Astron`);
+  textFont(`astron`);
   text('HELLO, WELCOME AND PLEASE ENJOY THIS GAME', width/2, height/2)
   text(`To start please click anywhere`, width/2, height/2+50);
   reset();
@@ -110,7 +114,7 @@ function playMode(){
     }
   //text and placement for the score
   textSize(20);
-  textFont(`Astron`);
+  textFont(`astron`);
   text(`Your score =`, 110, 60);
   text(player.score, 213, 62);
 
@@ -123,7 +127,7 @@ function playMode(){
     player.size = 100;
     textSize(20);
     fill(255);
-    textFont(`Astron`);
+    textFont(`astron`);
     text(`WOOHOO!! Can you score 500, Now?`, width/2, height/2)
   };
 };
@@ -131,7 +135,7 @@ function playMode(){
 function endScreen(){
   background(bgEndScreen);
   textAlign(CENTER);
-  textFont(`Astron`);
+  textFont(`astron`);
   textSize(25);
   text(`OOPS! GAME OVER`, width/2, height/2-20);
   text(`SCORE = ` +player.score, width/2, height/2+20);
