@@ -1,42 +1,58 @@
+/**************************************************
+Project 1 - Catch the thief
+Sara Graveline
+A simple game made with my knowledge of Javescript right now.
+The goal of this game is for the player/police to catch the thief before he/she steals the diamonds from the bottom of the sea.
+****************************************************/
 
-let bgStartScreen;
-let bgPlayMode;
-let bgEndScreen;
+"use strict";
 
-let thief;
+//Variables for images.
+let bgStartScreen; //start screen image variable
+let bgPlayMode; //middle/game screen image variable
+let bgEndScreen; //end screen image variable
+let thief; // thief/non-user controled image variable
+let badge; // police/user-controled image variable
 
-let badge;
-
+//Variable for the font, Astron by Mason Mulcahy.
 let astron;
 
+//Variable for the screen, the function is to switch between start, middle and end screens.
+let state = 0;
+
+//Variable for thief/non-user controled.
 let player = {
   x: 0,
   y: 0,
   size: 50,
   speed: 2,
   score: 0,
-  r: 0
 };
 
-
-var screen = 0;
-
-
+//Variable for the police/User-controled mouse trail.
 let trail =[];
 let a =0;
 
+
+//preload
+//
+//Loads the images and font for each element that requires an image or font.
 function preload () {
+  //start screen background image
   bgStartScreen = loadImage(`assets/images/startscreen.jpg`);
+  //middle/during game background image
   bgPlayMode = loadImage(`assets/images/playmode.jpg`);
+  //end/game over background image
   bgEndScreen = loadImage(`assets/images/endscreen-image.jpg`);
 
+  //thief/non-user-controled image
   thief = loadImage(`assets/images/thief1.png`);
+  //police/user-controled image
   badge = loadImage(`assets/images/police badge-02.png`);
 
+  //Astron font for all the text.
   astron = loadFont(`assets/fonts/Astron.ttf`);
-
-
-}
+};
 
 
 function setup() {
@@ -48,11 +64,11 @@ function setup() {
 
 
 function draw() {
-  if(screen == 0) {
+  if(state == 0) {
     startScreen()
-  }else if (screen == 1) {
+  }else if (state == 1) {
     playMode()
-  }else if (screen == 2) {
+  }else if (state == 2) {
     endScreen()
   };
 };
@@ -80,7 +96,7 @@ function playMode(){
   player.y += player.speed; //creates the circles movement
 
   if (player.y>height){
-    screen = 2
+    state = 2
   };
 
 
@@ -120,7 +136,7 @@ function playMode(){
 
 
   //if statement if the player reaches 100 score, they get a motivated text to get going.
-  if (player.score === 5) {
+  if (player.score === 50) {
     player.x = width/2-70;
     player.y = height/2-140;
     player.speed = 0;
@@ -128,7 +144,7 @@ function playMode(){
     textSize(20);
     fill(255);
     textFont(`astron`);
-    text(`WOOHOO!! Can you score 500, Now?`, width/2, height/2)
+    text(`WOOHOO!! Can you score 300, Now?`, width/2, height/2)
   };
 };
 
@@ -143,15 +159,15 @@ function endScreen(){
 };
 
 function mousePressed (){
-  if(screen == 0){
-    screen = 1
-  } else if(screen == 2){
-    screen = 0
+  if(state == 0){
+    state = 1
+  } else if(state == 2){
+    state = 0
   };
 };
 
 function reset(){
-  player.score = 0;
+  player.state = 0;
   player.speed = 1;
   player.y = -2;
 };
