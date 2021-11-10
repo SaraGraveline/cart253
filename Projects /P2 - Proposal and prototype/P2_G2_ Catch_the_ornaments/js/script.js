@@ -1,8 +1,10 @@
 /**************************************************
-Project 1 - Catch the thief
+Project 2 - Catch the ornaments
 Sara Graveline
-A simple game made with my knowledge of Javescript right now.
-The goal of this game is for the player/police to catch the thief before he/she steals the diamonds from the bottom of the sea.
+
+The player has to help Jungkook with catching all the ornaments. Don't let them touch the ground becuase it will break if it does. And after catching 25 of them, you can go back to the main (matching game) and complete that game.
+
+credits: mouse trails -- by mrbombmusic
 ****************************************************/
 
 "use strict";
@@ -11,8 +13,8 @@ The goal of this game is for the player/police to catch the thief before he/she 
 let bgStartScreen; //start screen image variable
 let bgPlayMode; //middle/game screen image variable
 let bgEndScreen; //end screen image variable
-let thief; // thief/non-user controlled image variable
-let badge; // police/user-controlled image variable
+let ornaments; //
+let badge; //
 
 //Variable for the font, Astron by Mason Mulcahy.
 let astron;
@@ -20,7 +22,7 @@ let astron;
 //Variable for the screen, the function is to switch between start, middle and end screens.
 let state = 0;
 
-//Variable for thief/non-user controled.
+//Variable for ornaments/non-user controled.
 let player = {
   x: 0,
   y: 0,
@@ -29,8 +31,8 @@ let player = {
   score: 0,
 };
 
-//Variable for the police/User-controlled mouse trail.
-let trail =[];
+//Variable for the player/User-controlled mouse tail .
+let tail =[];
 let a =0;
 
 
@@ -39,16 +41,16 @@ let a =0;
 //Loads the images and font for each element that requires an image or font.
 function preload () {
   //start screen background image
-  bgStartScreen = loadImage(`assets/images/startscreen.jpg`);
+  bgStartScreen = loadImage(`assets/images/lightsnow.jpg`);
   //middle/during game background image
-  bgPlayMode = loadImage(`assets/images/playmode.jpg`);
+  bgPlayMode = loadImage(`assets/images/dark-image.jpg`);
   //end/game over background image
-  bgEndScreen = loadImage(`assets/images/endscreen-image.jpg`);
+  bgEndScreen = loadImage(`assets/images/christmas-tree.jpg`);
 
-  //thief/non-user-controlled image
-  thief = loadImage(`assets/images/thief1.png`);
-  //police/user-controlled image
-  badge = loadImage(`assets/images/police badge-02.png`);
+  //tornaments/non-user-controlled image
+  ornaments = loadImage(`assets/images/ornaments-ball.png`);
+  //player/user-controlled image
+  badge = loadImage(`assets/images/hand.png`);
 
   //Astron font for all the text.
   astron = loadFont(`assets/fonts/Astron.ttf`);
@@ -100,10 +102,10 @@ function playMode(){
   background(bgPlayMode); //background image
   noStroke();
 
-  //displays and shows that image of the thief.
-  image(thief, player.x, player.y, player.size, player.size);
+  //displays and shows that image of the ornaments.
+  image(ornaments, player.x, player.y, player.size, player.size);
 
-  //makes the thief move on the canvas
+  //makes the ornaments move on the canvas
   player.y += player.speed;
 
   //if statement of when the layer hits the bottom, the end screen appears (game over).
@@ -111,31 +113,31 @@ function playMode(){
     state = 2 //end screen
   };
 
-  //if statement for when the circle hits the bottom, a new random size, speed, and on different x axis, a new thief appears.
+  //if statement for when the circle hits the bottom, a new random size, speed, and on different x axis, a new ornaments appears.
   if (player.y > height){
     player.x = random(width); //random x-axis
     player.speed = random(3, 7); // random speed
-    player.size = random(40, 80); // random size
-    player.y = 0; //the thief always appears on the 0 value of the y-axis.
+    player.size = random(40, 70); // random size
+    player.y = 0; //the ornaments always appears on the 0 value of the y-axis.
   };
 
-  //if statement for when the police badge touches a thief.
+  //if statement for when the player badge touches a ornaments.
   if (mouseX > player.x-40 && mouseX < player.x+40 && mouseY > player.y - 40 && mouseY < player.y + 40) {
     player.y = 0;
     player.x = random(width);
-    player.score = player.score + 1; // the player scores when the police badge catches the thief.
+    player.score = player.score + 1; // the player scores when the player badge catches the ornaments.
     player.speed = random(3,12);
     player.size = random (40, 80);
   };
 
-  //this is for the police badge/user-controlled.
-  trail.push([mouseX, mouseY]);
-    for(let i = 0; i < trail.length; i++) {
+  //this is for the player badge/user-controlled.
+  tail .push([mouseX, mouseY]);
+    for(let i = 0; i < tail .length; i++) {
     noStroke();
-    //displays the image, size of the police badge
-    image(badge, trail[i][0], trail[i][1], 110, 100, a);
+    //displays the image, size of the player badge
+    image(badge, tail [i][0], tail [i][1], 110, 100, a);
       if(a > 100) {
-        trail.shift();
+        tail .shift();
         a = 10;
       }
       a += 8;
@@ -148,8 +150,8 @@ function playMode(){
   text(player.score, 213, 62); //score number with the x and y position
 
   //if statement if the player reaches 50 score, they get a motivated text to keep going and scoring more.
-  if (player.score === 50) {
-    //displays a thief around the middle of the canvas.
+  if (player.score === 25) {
+    //displays a ornaments around the middle of the canvas.
     player.x = width/2-70;
     player.y = height/2-140;
     player.speed = 0;
