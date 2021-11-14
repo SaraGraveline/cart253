@@ -24,7 +24,8 @@ function preload() {
 Description of setup
 */
 function setup() {
-
+  createCanvas(windowWidth, windowHeight);
+  silentNight.play();
 }
 
 
