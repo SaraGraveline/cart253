@@ -10,50 +10,57 @@ This cursor will be used on a landing page and the ending page of the game where
 Credits: Sound visualization by Lllucas
 **/
 
-let silentNight;
-let bounce = [];
-let base;
+let silentNight; //the song
+let bounce = []; //rhythm to the song
+let base; //for the get level p5.js
 
 /**
-Description of preload
+This function loads the silent night mp3 song from the sound assets folder.
 */
 function preload() {
   silentNight = loadSound('assets/sounds/SILENT_NIGHT.mp3');
-}
+};
 
 
 /**
-Description of setup
+This function setup the canvas to windowWidth and windowHeight.
+It also plays the song as the page load and plus the base varible.
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
   silentNight.play();
-  base = new p5.Amplitude();
-}
+  base = new p5.Amplitude(); //from p5.js
+};
 
 
 /**
-Description of draw()
+This function draws random strokes colors for the circles, bounces all the circles, and the movement of the circle with mouse.
 */
 function draw() {
-  background(0);
- let vol = base.getLevel();
+  background(0); //black color background
+
+  let vol = base.getLevel();
   bounce.push(vol);
-  colorMode(HSB);
-  stroke(random(10, 240), random(10, 240), random(10, 240));
 
-  noFill();
-  noCursor();
+  colorMode(HSB); //sets the color mode to HSB
+  stroke(random(10, 240), random(10, 240), random(10, 240)); //random color strokes for all of the circles.
 
-  translate(mouseX, mouseY);
+  noFill(); //no fill
+  noCursor(); // no cursor on the canvas
+
+  translate(mouseX, mouseY); //able to move the circle around
+
+  //controls the rhythm of the circles.
   for (i = 0; i < 180; i++) {
     let r = map(bounce[i], 0, 2, 30, 1500);
     let x = r * cos(i);
     let y = r * sin(i);
-    ellipse(x, y, 10, 10);
-  }
 
+    ellipse(x, y, 10, 10); //draws the circle
+  };
+
+  // makes the circle move back and fourth like they are bouncing.
   if (bounce.length > 180) {
     bounce.splice(0, 1);
-  }
+  };
 };
