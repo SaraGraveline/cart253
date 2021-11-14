@@ -8,13 +8,15 @@ To create more christmas environment, I used random function on the stroke of th
 This cursor will be used on a landing page and the ending page of the game where the user will have to click on different buttons.
 
 Credits: Sound visualization by Lllucas
+**/
+
+let silentNight;
+
 /**
-
-
 Description of preload
 */
 function preload() {
-
+  silentNight = loadSound('assets/sounds/SILENT_NIGHT.mp3');
 }
 
 
