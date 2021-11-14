@@ -27,7 +27,7 @@ It also plays the song as the page load and plus the base varible.
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  silentNight = loadSound("assets/sounds/SILENT_NIGHT.mp3", loaded);
+  silentNight = loadSound("assets/sounds/SILENT-NIGHT.mp3", loaded);
   base = new p5.Amplitude(); //from p5.js
 };
 
