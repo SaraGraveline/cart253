@@ -11,6 +11,8 @@ Credits: Sound visualization by Lllucas
 **/
 
 let silentNight;
+let bounce = [];
+let base;
 
 /**
 Description of preload
@@ -26,6 +28,7 @@ Description of setup
 function setup() {
   createCanvas(windowWidth, windowHeight);
   silentNight.play();
+  base = new p5.Amplitude();
 }
 
 
@@ -33,5 +36,24 @@ function setup() {
 Description of draw()
 */
 function draw() {
+  background(0);
+ let vol = base.getLevel();
+  bounce.push(vol);
+  colorMode(HSB);
+  stroke(random(10, 240), random(10, 240), random(10, 240));
 
-}
+  noFill();
+  noCursor();
+
+  translate(mouseX, mouseY);
+  for (i = 0; i < 180; i++) {
+    let r = map(bounce[i], 0, 2, 30, 1500);
+    let x = r * cos(i);
+    let y = r * sin(i);
+    ellipse(x, y, 10, 10);
+  }
+
+  if (bounce.length > 180) {
+    bounce.splice(0, 1);
+  }
+};
