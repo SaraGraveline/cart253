@@ -17,9 +17,9 @@ let base; //for the get level p5.js
 /**
 This function loads the silent night mp3 song from the sound assets folder.
 */
-//function preload() {
-//  silentNight = loadSound("assets/sounds/SILENT_NIGHT.mp3");
-//};
+function preload() {
+ silentNight = loadSound("assets/sounds/SILENT-NIGHT.mp3");
+};
 
 /**
 This function setup the canvas to windowWidth and windowHeight.
@@ -27,13 +27,10 @@ It also plays the song as the page load and plus the base varible.
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  silentNight = loadSound("assets/sounds/SILENT-NIGHT.mp3", loaded);
+  silentNight.play();
   base = new p5.Amplitude(); //from p5.js
 };
 
-function loaded() {
-  silentNight.play();
-}
 /**
 This function draws random strokes colors for the circles, bounces all the circles, and the movement of the circle with mouse.
 */
