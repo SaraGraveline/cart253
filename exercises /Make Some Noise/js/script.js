@@ -27,9 +27,13 @@ It also plays the song as the page load and plus the base varible.
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  silentNight.play();
+ // silentNight.play();
   base = new p5.Amplitude(); //from p5.js
 };
+
+function mousePressed() {
+  silentNight.play();
+}
 
 /**
 This function draws random strokes colors for the circles, bounces all the circles, and the movement of the circle with mouse.
