@@ -18,7 +18,7 @@ let base; //for the get level p5.js
 This function loads the silent night mp3 song from the sound assets folder.
 */
 function preload() {
-  silentNight = loadSound('assets/sounds/SILENT_NIGHT.mp3');
+  silentNight = loadSound("assets/sounds/SILENT_NIGHT.mp3");
 };
 
 /**
