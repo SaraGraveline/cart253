@@ -16,6 +16,11 @@ There will be about 50 presents and after the player successfully collects all, 
 
 "use strict";
 
+let player; //varible for player
+let frame = 10; //frame rate of the player
+let size = 60; //size of the grid where the player travels and present appears.
+let columns; //columns of the grid
+let rows; //rows of the grid
 
 /**
 Description of preload
@@ -24,18 +29,29 @@ function preload() {
 
 }
 
-
-/**
-Description of setup
-*/
 function setup() {
+  createCanvas(windowWidth, windowHeight); //draws the canvas
 
-}
+  columns = floor(width/size);
+  rows = floor(height/size);
 
+  player = new Player();
+  frameRate(frame);
 
-/**
-Description of draw()
-*/
+  present = new Present();
+  presentLocation();
+};
+
 function draw() {
+  background(0); //background black colors
 
-}
+  player.move();
+  player.display();
+
+  displayPresent();
+
+  if(player.eat(present)) {
+    presentLocation();
+    collectSound.play();
+  }
+};
