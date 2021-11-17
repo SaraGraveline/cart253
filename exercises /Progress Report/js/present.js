@@ -14,7 +14,6 @@ function presentLocation() {
   //present.position(x, y);
 };
 
-
 function displayPresent () {
   pop();
   fill(255, 0, 100);

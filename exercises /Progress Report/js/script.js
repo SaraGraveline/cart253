@@ -30,9 +30,9 @@ let collectSound; //plays when the present is collected by the player.
 let gameOver; // when a player touches the walls.
 
 function preload () {
-  startSong = loadSound("assets/images/All I Want For Christmas Is You.mp3");
-  collectSound = loadSound("assets/images/collecting_gift.wav");
-  gameOver = loadSound("assets/images/endsound.mp3");
+  startSong = loadSound("assets/sounds/All I Want For Christmas Is You.mp3");
+  collectSound = loadSound("assets/sounds/collecting_gift.wav");
+  gameOver = loadSound("assets/sounds/endsound.mp3");
 };
 
 function setup() {
