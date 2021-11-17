@@ -22,12 +22,16 @@ let size = 60; //size of the grid where the player travels and present appears.
 let columns; //columns of the grid
 let rows; //rows of the grid
 
-/**
-Description of preload
-*/
-function preload() {
+//Songs
+let startSong; //song plays when the page loads.
+let collectSound; //plays when the present is collected by the player.
+let gameOver; // when a player touches the walls.
 
-}
+function preload () {
+  startSong = loadSound("assets/images/All I Want For Christmas Is You.mp3");
+  collectSound = loadSound("assets/images/collecting_gift.wav");
+  gameOver = loadSound("assets/images/endsound.mp3");
+};
 
 function setup() {
   createCanvas(windowWidth, windowHeight); //draws the canvas
