@@ -6,6 +6,15 @@ class Present {
   };
 };
 
+function presentLocation() {
+  //setup the random location of the present sqaure on the canvas on the grid where the player square travels.
+  let x = floor(random(columns))*size;
+  let y = floor(random(rows))*size;
+  present = createVector(x, y);
+  //present.position(x, y);
+};
+
+
 function displayPresent () {
   pop();
   fill(255, 0, 100);
