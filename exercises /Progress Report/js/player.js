@@ -10,6 +10,21 @@ class Player {
     this.bag = [];
   };
 
+  setDir(x, y) {
+    this.xdir = x;
+    this.ydir = y;
+  };
+
+  eat(pos) {
+    let d = dist(this.x, this.y, pos.x, pos.y);
+    if (d<1){
+      this.total++;
+      return true;
+    } else {
+      return false;
+    };
+  };
+
   move() {
   player.x += this.xdir*size;
   player.y += this.ydir*size;
