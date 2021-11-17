@@ -55,3 +55,15 @@ function draw() {
     collectSound.play();
   }
 };
+
+function keyPressed() {
+  if (keyCode === LEFT_ARROW) {
+    player.setDir(-1, 0);
+  } else if (keyCode === RIGHT_ARROW) {
+    player.setDir(1, 0);
+  } else if (keyCode === DOWN_ARROW) {
+    player.setDir(0, 1);
+  } else if (keyCode === UP_ARROW) {
+    player.setDir(0, -1);
+  };
+};
