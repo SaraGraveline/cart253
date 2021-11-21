@@ -101,6 +101,7 @@ function displayUser() {
   pop();
 }
 
+
 function displayFood(food) {
   if(!food.eaten) {
     push();
