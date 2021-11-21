@@ -9,6 +9,7 @@ Experimenting with inheritance
 let vehicles = [];
 let numCars = 10;
 let numMotorcycle = 10;
+let numSportCar = 5;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -25,6 +26,13 @@ function setup() {
     let y = random(0, height);
     let motorcycle = new Motorcycle(x, y);
     vehicles.push(motorcycle);
+  }
+
+  for (let i = 0; i < numSportCar; i++) {
+    let x = random(0, width);
+    let y = random(0, height);
+    let sportcar = new SportCar(x, y);
+    vehicles.push(sportcar);
   }
 }
 
