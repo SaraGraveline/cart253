@@ -26,7 +26,6 @@ let rows; //rows of the grid
 let present; //varible for the present
 let presentGif;
 
-let backgroundImage;
 
 //Songs
 let startSong; //song plays when the page loads.
@@ -39,11 +38,10 @@ function preload () {
   gameOver = loadSound("assets/sounds/endsound.mp3");
   presentGif = loadImage('assets/images/present_cute.gif');
   playerGif = loadImage('assets/images/gift_train.png');
-  backgroundImage = loadImage('assets/images/snow_falling.gif');
 };
 
 function setup() {
-  createCanvas(windowWidth, windowHeight); //draws the canvas
+  createCanvas(1800, 900); //draws the canvas
 
   columns = floor(width/size);
   rows = floor(height/size);
