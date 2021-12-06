@@ -4,19 +4,35 @@ class Player {
     this.x = 0;
     this.y = 0;
     this.speed = 1;
-    this.xdir = 0;
-    this.ydir = 0;
-    this.total = 0;
-    this.bag = [];
+    this.vx = 0;
+    this.vy = 0;
+
+
   };
 
-  setDir(x, y) {
-    this.xdir = x;
-    this.ydir = y;
+  handleInput() {
+    if (keyIsDown(LEFT_ARROW)) {
+      this.vx = -this.speed;
+    }
+    else if (keyIsDown(RIGHT_ARROW)) {
+      this.vx = this.speed;
+    }
+    else {
+      this.vx = 0;
+    }
+    if (keyIsDown(UP_ARROW)) {
+      this.vy = -this.speed;
+    }
+    else if (keyIsDown(DOWN_ARROW)) {
+      this.vy = this.speed;
+    }
+    else {
+      this.vy = 0;
+    }
   };
 
-  eat(pos) {
-    let d = dist(this.x, this.y, pos.x, pos.y);
+  eat(present) {
+    let d = dist(this.x, this.y, present.x, present.y);
     if (d<1){
       this.total++;
       return true;
@@ -26,19 +42,18 @@ class Player {
   };
 
   move() {
-  player.x += this.xdir*size;
-  player.y += this.ydir*size;
+  player.x += this.vx*size;
+  player.y += this.vy*size;
 
   //constraining it in the canvas
   player.x = constrain(player.x, 0, width-size);
   player.y = constrain(player.y, 0, height-size);
-};
+  };
 
-display() {
-  push();
-  fill(255);
-  image(playerGif, player.x, player.y, size, size)
-  //rect(player.x, player.y, size, size);
-  pop();
-};
+  display() {
+    push();
+    image(playerImage, player.x, player.y, size, size)
+    //rect(player.x, player.y, size, size);
+    pop();
+  };
 }

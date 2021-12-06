@@ -16,65 +16,71 @@ There will be about 50 presents and after the player successfully collects all, 
 
 "use strict";
 
-let player; //varible for player
-let playerGif;
-let frame = 5; //frame rate of the player
-let size = 100; //size of the grid where the player travels and present appears.
-let columns; //columns of the grid
-let rows; //rows of the grid
+//All the player varibles: player, the player's image, frame rate, the size of the player and the hidden grid/the path where the player travels.
+let player;
+let playerImage;
+let frame = 8;
+let size = 100;
 
-let present; //varible for the present
+
+//the hidden grid where the player travels: columns and rows.
+let columns; //18 columns of the grid
+let rows; //9 rows of the grid
+
+//The present varibles: present and the gif for present
+let present;
 let presentGif;
 
 
-//Songs
+//Songs and sounds used during the different stages of the game.
 let startSong; //song plays when the page loads.
 let collectSound; //plays when the present is collected by the player.
 let gameOver; // when a player touches the walls.
 
+//Preload function that loads the songs, sound, image and gif of this game.
 function preload () {
+  //starting song, play during collecting to gifts, and when the player dies
   startSong = loadSound("assets/sounds/All I Want For Christmas Is You.mp3");
   collectSound = loadSound("assets/sounds/collecting_gift.wav");
   gameOver = loadSound("assets/sounds/endsound.mp3");
+
+  //present gif of a present and player's image of a gift train
   presentGif = loadImage('assets/images/present_cute.gif');
-  playerGif = loadImage('assets/images/gift_train.png');
+  playerImage = loadImage('assets/images/gift_train.png');
 };
 
-function setup() {
-  createCanvas(1800, 900); //draws the canvas
 
+//Setup function with a defined canvas size. The columns and rows of the hidden grid is divided by the the size with the width and height size of canvas.
+function setup() {
+  createCanvas(1800, 900);
+
+  //grid: columns = 1800 divided by 100 and rows = 900 divied by 100.
   columns = floor(width/size);
   rows = floor(height/size);
 
+  //Calls for the class for the player
   player = new Player();
   frameRate(frame);
 
+  //Calls for the class of present and present Location
   present = new Present();
-  presentLocation();
 };
 
 function draw() {
-  background(204, 255, 255); //background black colors
+  //Draws the light blue background colors
+  background(204, 255, 255);
 
+  //calls on player's class for the player to move and to draw the player image.
+  player.handleInput();
   player.move();
   player.display();
 
+  //calls on the present's class to display the present gif.
   displayPresent();
 
+  //when the player eats the present, the presentLocation function starts and during eating the collecting sound plays.
   if(player.eat(present)) {
     presentLocation();
     collectSound.play();
   }
-};
-
-function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    player.setDir(-1, 0);
-  } else if (keyCode === RIGHT_ARROW) {
-    player.setDir(1, 0);
-  } else if (keyCode === DOWN_ARROW) {
-    player.setDir(0, 1);
-  } else if (keyCode === UP_ARROW) {
-    player.setDir(0, -1);
-  };
 };

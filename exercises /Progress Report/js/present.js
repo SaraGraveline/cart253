@@ -6,18 +6,19 @@ class Present {
   };
 };
 
+//
+//for some reason the presentlocation and display present doesn't work with its in the present class. So I used function for it.
+//
+
 function presentLocation() {
   //setup the random location of the present sqaure on the canvas on the grid where the player square travels.
   let x = floor(random(columns))*size;
   let y = floor(random(rows))*size;
   present = createVector(x, y);
-  //present.position(x, y);
 };
 
-function displayPresent () {
-  pop();
-  fill(255, 0, 100);
-  image(presentGif, present.x, present.y, size, size)
-  //rect(present.x, present.y, size, size);
+function displayPresent() {
   push();
+  image(presentGif, present.x, present.y, size, size)
+  pop();
 };
