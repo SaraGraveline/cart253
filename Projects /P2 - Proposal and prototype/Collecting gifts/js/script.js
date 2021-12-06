@@ -112,19 +112,25 @@ function draw() {
   }
 };
 
-  //calls on player's class for the player to move and to draw the player image.
+function title() {
+  displayText(`Please help Jungkook plan his first Christmas by collecting gifts!`);
+};
+
+
+function simulation() {
+  //calls on player's class for the player to move with arrow keys on the keyboard, movement, and to draw the player image.
   player.handleInput();
   player.move();
   player.display();
 
   for (let i = 0; i < obstacles.length; i++) {
-  let obstacle = obstacles[i];
-  obstacle.move();
-  obstacle.wrap();
-  obstacle.display();
+    let obstacle = obstacles[i];
+    obstacle.move();
+    obstacle.wrap();
+    obstacle.display();
 
-  player.checkHit(obstacle);
-}
+    player.checkHit(obstacle);
+  }
 
   //calls on the present's class to display the present gif.
   displayPresent();
@@ -133,5 +139,5 @@ function draw() {
   if(player.eat(present)) {
     presentLocation();
     collectSound.play();
-  }
+  };
 };
