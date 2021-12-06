@@ -20,7 +20,10 @@ There will be about 50 presents and after the player successfully collects all, 
 let player;
 let playerImage;
 let frame = 8;
-let size = 100;
+let size = 90;
+
+let obstacles = [];
+let numBigs = 15;
 
 
 //the hidden grid where the player travels: columns and rows.
@@ -64,6 +67,26 @@ function setup() {
 
   //Calls for the class of present and present Location
   present = new Present();
+
+  for (let i = 0; i < numBigs; i++) {
+    let x = random(0,width);
+    let y = random(0,height);
+    let big = new Big(x,y);
+    obstacles.push(big);
+  };
+
+
+  // Set random directions
+  for (let i = 0; i < obstacles.length; i++) {
+    let obstacle = obstacles[i];
+    let r = random(0,1);
+    if (r < 0.5) {
+      obstacle.vx = -obstacle.speed;
+    }
+    else {
+      obstacle.vx = obstacle.speed;
+    }
+  };
 };
 
 function draw() {
@@ -74,6 +97,15 @@ function draw() {
   player.handleInput();
   player.move();
   player.display();
+
+  for (let i = 0; i < obstacles.length; i++) {
+  let obstacle = obstacles[i];
+  obstacle.move();
+  obstacle.wrap();
+  obstacle.display();
+
+  player.checkHit(obstacle);
+}
 
   //calls on the present's class to display the present gif.
   displayPresent();
