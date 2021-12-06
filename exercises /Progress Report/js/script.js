@@ -17,12 +17,16 @@ There will be about 50 presents and after the player successfully collects all, 
 "use strict";
 
 let player; //varible for player
-let frame = 10; //frame rate of the player
-let size = 60; //size of the grid where the player travels and present appears.
+let playerGif;
+let frame = 5; //frame rate of the player
+let size = 100; //size of the grid where the player travels and present appears.
 let columns; //columns of the grid
 let rows; //rows of the grid
 
 let present; //varible for the present
+let presentGif;
+
+let backgroundImage;
 
 //Songs
 let startSong; //song plays when the page loads.
@@ -33,6 +37,9 @@ function preload () {
   startSong = loadSound("assets/sounds/All I Want For Christmas Is You.mp3");
   collectSound = loadSound("assets/sounds/collecting_gift.wav");
   gameOver = loadSound("assets/sounds/endsound.mp3");
+  presentGif = loadImage('assets/images/present_cute.gif');
+  playerGif = loadImage('assets/images/gift_train.png');
+  backgroundImage = loadImage('assets/images/snow_falling.gif');
 };
 
 function setup() {
@@ -49,7 +56,7 @@ function setup() {
 };
 
 function draw() {
-  background(0); //background black colors
+  background(204, 255, 255); //background black colors
 
   player.move();
   player.display();

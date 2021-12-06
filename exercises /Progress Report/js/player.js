@@ -37,7 +37,8 @@ class Player {
 display() {
   push();
   fill(255);
-  rect(player.x, player.y, size, size);
+  image(playerGif, player.x, player.y, size, size)
+  //rect(player.x, player.y, size, size);
   pop();
 };
 }

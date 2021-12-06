@@ -17,6 +17,7 @@ function presentLocation() {
 function displayPresent () {
   pop();
   fill(255, 0, 100);
-  rect(present.x, present.y, size, size);
+  image(presentGif, present.x, present.y, size, size)
+  //rect(present.x, present.y, size, size);
   push();
 };
