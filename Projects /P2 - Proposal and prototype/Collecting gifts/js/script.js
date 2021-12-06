@@ -15,7 +15,7 @@ There will be about 50 presents and after the player successfully collects all, 
 
 "use strict";
 
-let state = 'simulation';
+let state = 'title';
 
 //All the player varibles: player, the player's image, frame rate, the size of the player and the hidden grid/the path where the player travels.
 let player;
@@ -65,6 +65,7 @@ function setup() {
   rows = floor(height/size);
 
   //Calls for the class for the player
+
   player = new Player();
   frameRate(frame);
 
@@ -132,15 +133,15 @@ function simulation() {
 
     player.checkHit(obstacle);
   }
-/*
+
   if (!player.alive){
     state = `dead`;
   }
-
+/*
   if (player.y < 0) {
     state = `success`;
   };
-*/ 
+*/
   //calls on the present's class to display the present gif.
   displayPresent();
 
@@ -163,7 +164,7 @@ function displayText(string) {
   push();
   textAlign(CENTER, CENTER);
   textSize(32);
-  fill(255);
+  fill(0);
   text(string, width/2, height/2);
   pop();
 };

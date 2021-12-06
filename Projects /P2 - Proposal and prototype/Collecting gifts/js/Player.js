@@ -6,6 +6,7 @@ class Player {
     this.speed = 1;
     this.vx = 0;
     this.vy = 0;
+    this.alive = true;
 
   };
 
@@ -50,13 +51,14 @@ class Player {
   };
 
   move() {
-  player.x += this.vx*size;
-  player.y += this.vy*size;
+    player.x += this.vx*size;
+    player.y += this.vy*size;
 
-  //constraining it in the canvas
-  player.x = constrain(player.x, 0, width-size);
-  player.y = constrain(player.y, 0, height-size);
-  };
+    //constraining it in the canvas
+    player.x = constrain(player.x, 0, width-size);
+    player.y = constrain(player.y, 0, height-size);
+
+};
 
   display() {
     push();
