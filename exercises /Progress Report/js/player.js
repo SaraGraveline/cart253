@@ -7,7 +7,15 @@ class Player {
     this.vx = 0;
     this.vy = 0;
 
+  };
 
+  checkHit(obstacle) {
+    if (this.x > obstacle.x - obstacle.width/2 &&
+        this.x < obstacle.x + obstacle.width/2 &&
+        this.y > obstacle.y - obstacle.height/2 &&
+        this.y < obstacle.y + obstacle.height/2) {
+      this.alive = false;
+    }
   };
 
   handleInput() {
