@@ -123,6 +123,7 @@ function simulation() {
   player.move();
   player.display();
 
+
   for (let i = 0; i < obstacles.length; i++) {
     let obstacle = obstacles[i];
     obstacle.move();
@@ -131,7 +132,15 @@ function simulation() {
 
     player.checkHit(obstacle);
   }
+/*
+  if (!player.alive){
+    state = `dead`;
+  }
 
+  if (player.y < 0) {
+    state = `success`;
+  };
+*/ 
   //calls on the present's class to display the present gif.
   displayPresent();
 
@@ -140,12 +149,27 @@ function simulation() {
     presentLocation();
     collectSound.play();
   };
+};
 
-  if (!player.alive){
-    state = `dead`;
+function success() {
+  displayText(`Thank you so much for your help!`);
+};
+
+function dead() {
+  displayText(`Oh Noooo! Please try again!`);
+};
+
+function displayText(string) {
+  push();
+  textAlign(CENTER, CENTER);
+  textSize(32);
+  fill(255);
+  text(string, width/2, height/2);
+  pop();
+};
+
+function keyPressed() {
+  if (state === `title`) {
+    state = `simulation`;
   }
-
-  if (player.y < 0) {
-    state = `success`;
-  };
 };
