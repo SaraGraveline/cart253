@@ -134,14 +134,11 @@ function simulation() {
     player.checkHit(obstacle);
   }
 
+
   if (!player.alive){
     state = `dead`;
   }
-/*
-  if (player.y < 0) {
-    state = `success`;
-  };
-*/
+
   //calls on the present's class to display the present gif.
   displayPresent();
 
@@ -169,7 +166,7 @@ function displayText(string) {
   pop();
 };
 
-function keyPressed() {
+function mousePressed() {
   if (state === `title`) {
     state = `simulation`;
   }
