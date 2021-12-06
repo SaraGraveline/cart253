@@ -140,4 +140,12 @@ function simulation() {
     presentLocation();
     collectSound.play();
   };
+
+  if (!player.alive){
+    state = `dead`;
+  }
+
+  if (player.y < 0) {
+    state = `success`;
+  };
 };
