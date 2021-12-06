@@ -11,7 +11,7 @@ class Player {
   };
 
   checkHit(obstacle) {
-    if (this.x > obstacle.x - obstacle.width/2 &&
+ if (this.x > obstacle.x - obstacle.width/2 &&
         this.x < obstacle.x + obstacle.width/2 &&
         this.y > obstacle.y - obstacle.height/2 &&
         this.y < obstacle.y + obstacle.height/2) {
