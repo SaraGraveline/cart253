@@ -13,8 +13,9 @@ There will be about 50 presents and after the player successfully collects all, 
   5. marge it with other games
 */
 
-
 "use strict";
+
+let state = 'simulation';
 
 //All the player varibles: player, the player's image, frame rate, the size of the player and the hidden grid/the path where the player travels.
 let player;
@@ -22,6 +23,7 @@ let playerImage;
 let frame = 8;
 let size = 90;
 
+//Varibles for the obstacles; array and 15 amounts of big obstacle.
 let obstacles = [];
 let numBigs = 15;
 
@@ -35,10 +37,11 @@ let present;
 let presentGif;
 
 
-//Songs and sounds used during the different stages of the game.
+//Varibles for songs and sounds used during the different stages of the game.
 let startSong; //song plays when the page loads.
 let collectSound; //plays when the present is collected by the player.
 let gameOver; // when a player touches the walls.
+
 
 //Preload function that loads the songs, sound, image and gif of this game.
 function preload () {
@@ -68,6 +71,7 @@ function setup() {
   //Calls for the class of present and present Location
   present = new Present();
 
+  //sets the big obstacles randomly on the y and x axis by calling the big class.
   for (let i = 0; i < numBigs; i++) {
     let x = random(0,width);
     let y = random(0,height);
@@ -75,8 +79,7 @@ function setup() {
     obstacles.push(big);
   };
 
-
-  // Set random directions
+  //set random directions on the obstacle on the x axis
   for (let i = 0; i < obstacles.length; i++) {
     let obstacle = obstacles[i];
     let r = random(0,1);
@@ -89,9 +92,25 @@ function setup() {
   };
 };
 
+
+//Draws the background color and defines the different states of this game: Title, simulation, success, dead and hidden.
 function draw() {
   //Draws the light blue background colors
   background(204, 255, 255);
+
+  if (state === `title`) {
+    title();
+  }
+  else if (state === `simulation`) {
+    simulation();
+  }
+  else if (state === `success`) {
+    success();
+  }
+  else if (state === `dead`) {
+    dead();
+  }
+};
 
   //calls on player's class for the player to move and to draw the player image.
   player.handleInput();
