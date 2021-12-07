@@ -30,7 +30,7 @@ It also plays the song as the page load and plus the base varible.
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Collecting%20gifts/', 'Matching game');
+  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Collecting%20gifts', 'Start Game');
   a.position(width/50, height/8);
   /*
   button = createButton('Start Game');
