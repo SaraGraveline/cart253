@@ -12,8 +12,9 @@ class Present {
 
 function presentLocation() {
   //setup the random location of the present sqaure on the canvas on the grid where the player square travels.
-  let x = floor(random(columns))*size;
-  let y = floor(random(rows))*size;
+
+  let x = floor(random(gridColumns))*size;
+  let y = floor(random(gridRows))*size;
   present = createVector(x, y);
 };
 
