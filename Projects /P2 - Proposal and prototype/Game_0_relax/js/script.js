@@ -14,7 +14,6 @@ let silentNight; //the song
 let bounce = []; //rhythm to the song
 let base; //for the get level p5.js
 
-//let button;
 
 /**
 This function loads the silent night mp3 song from the sound assets folder.
@@ -30,14 +29,9 @@ It also plays the song as the page load and plus the base varible.
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Collecting%20gifts/', 'Start Game');
+  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_1_Collect_gifts/', 'Start Game');
   a.position(width/50, height/8);
-  /*
-  button = createButton('Start Game');
-  button.position(width/50, height/8)
-  button.mousePressed(startGame);
-*/
- // silentNight.play();
+
   base = new p5.Amplitude(); //from p5.js
 
 
