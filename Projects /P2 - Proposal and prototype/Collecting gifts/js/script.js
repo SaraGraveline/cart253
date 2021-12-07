@@ -182,7 +182,7 @@ function displayText(string) {
   pop();
 };
 
-function mousePressed() {
+function keyPressed() {
   if (state === `title`) {
     state = `simulation`;
 //  } else if (state === `won`) {
