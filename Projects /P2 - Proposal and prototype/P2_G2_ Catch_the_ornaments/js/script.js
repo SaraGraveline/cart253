@@ -41,7 +41,7 @@ let a =0;
 //Loads the images and font for each element that requires an image or font.
 function preload () {
   //start screen background image
-  bgStartScreen = loadImage(`assets/images/lightsnow.jpg`);
+  bgStartScreen = loadImage(`assets/images/startpage_game2.jpg`);
   //middle/during game background image
   bgPlayMode = loadImage(`assets/images/dark-image.jpg`);
   //end/game over background image
@@ -85,13 +85,13 @@ function draw() {
 //This function is for the start screen/ intro screen.
 function startScreen(){
   background(bgStartScreen); //background image
-  noStroke();
+  /*noStroke();
   fill(255, 0, 150) //hot pink color
   textAlign(CENTER);
   textSize(30);
   textFont(`astron`); //Astron font for loadFont
   text('HELLO! WELCOME AND PLEASE ENJOY THIS GAME', width/2, height/2); //intro text which is in the center of the canvas.
-  text(`To start please click anywhere`, width/2, height/2+50); //instructions for the player to move on to next screen(playmode).
+  text(`To start please click anywhere`, width/2, height/2+50); //instructions for the player to move on to next screen(playmode).*/
   reset(); //reset function when the player lose the game they come back to this.
 };
 
@@ -146,6 +146,7 @@ function playMode(){
   //text and placement for the score numbers on the top right corner
   textSize(20);
   textFont(`astron`);
+  fill(255);
   text(`Your score =`, 110, 60); //text with the x and y position
   text(player.score, 213, 62); //score number with the x and y position
 
