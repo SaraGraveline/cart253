@@ -13,7 +13,8 @@ class Big extends Obstacle {
     rectMode(CENTER);
     fill(200);
     noStroke();
-    rect(this.x,this.y,this.width,this.height);
+    image(obstacleImage, this.x, this.y, this.width,this.height)
+  //  rect(this.x,this.y,this.width,this.height);
     pop();
   }
 }

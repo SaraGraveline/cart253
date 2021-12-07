@@ -36,6 +36,7 @@ let gridRows; //9 rows of the grid
 let present;
 let presentGif;
 
+let obstacleImage;
 
 //Varibles for songs and sounds used during the different stages of the game.
 let startSong; //song plays when the page loads.
@@ -53,6 +54,7 @@ function preload () {
   //present gif of a present and player's image of a gift train
   presentGif = loadImage('assets/images/present_cute.gif');
   playerImage = loadImage('assets/images/gift_train_border.png');
+  obstacleImage = loadImage(`assets/images/brick wall.png`);
 };
 
 
