@@ -25,12 +25,12 @@ let size = 90;
 
 //Varibles for the obstacles; array and 15 amounts of big obstacle.
 let obstacles = [];
-let numBigs = 15;
+let numBigs = 10;
 
 
 //the hidden grid where the player travels: columns and rows.
-let columns; //18 columns of the grid
-let rows; //9 rows of the grid
+let gridColumns; //18 columns of the grid
+let gridRows; //9 rows of the grid
 
 //The present varibles: present and the gif for present
 let present;
@@ -52,7 +52,7 @@ function preload () {
 
   //present gif of a present and player's image of a gift train
   presentGif = loadImage('assets/images/present_cute.gif');
-  playerImage = loadImage('assets/images/gift_train.png');
+  playerImage = loadImage('assets/images/gift_train_border.png');
 };
 
 
@@ -61,8 +61,8 @@ function setup() {
   createCanvas(1800, 900);
 
   //grid: columns = 1800 divided by 100 and rows = 900 divied by 100.
-  columns = floor(width/size);
-  rows = floor(height/size);
+  gridColumns = floor(width/size);
+  gridRows = floor(height/size);
 
   //Calls for the class for the player
 
@@ -105,8 +105,8 @@ function draw() {
   else if (state === `simulation`) {
     simulation();
   }
-  else if (state === `success`) {
-    success();
+  else if (state === `won`) {
+    won();
   }
   else if (state === `dead`) {
     dead();
@@ -114,7 +114,10 @@ function draw() {
 };
 
 function title() {
-  displayText(`Please help Jungkook plan his first Christmas by collecting gifts!`);
+  displayText(`Please help Jungkook plan his first Christmas by collecting gifts!
+
+    To start please click anywhere`);
+    reset();
 };
 
 
@@ -139,6 +142,10 @@ function simulation() {
     state = `dead`;
   }
 
+  if (player.score === 50) {
+    state = 'won';
+  }
+
   //calls on the present's class to display the present gif.
   displayPresent();
 
@@ -149,7 +156,7 @@ function simulation() {
   };
 };
 
-function success() {
+function won() {
   displayText(`Thank you so much for your help!`);
 };
 
@@ -161,7 +168,8 @@ function displayText(string) {
   push();
   textAlign(CENTER, CENTER);
   textSize(32);
-  fill(0);
+  noStroke();
+  fill(255, 0, 150);
   text(string, width/2, height/2);
   pop();
 };
@@ -169,5 +177,11 @@ function displayText(string) {
 function mousePressed() {
   if (state === `title`) {
     state = `simulation`;
-  }
+  } else if(state === `dead`) {
+    state = `title`;
+  };
+};
+
+function reset () {
+  state === `title`;
 };
