@@ -181,7 +181,7 @@ function won() {
   text(`Score = ` +player.score, width/5.5, height/6);
   pop();
 
-  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_2_Catch_ornaments', 'Double Click here to start game 2!');
+  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_2_Catch_ornaments/', 'Double Click here to start game 2!');
   a.position(width/8, height/1.15);
 
 
