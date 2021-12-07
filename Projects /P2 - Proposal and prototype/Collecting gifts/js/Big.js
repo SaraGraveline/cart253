@@ -3,7 +3,7 @@ class Big extends Obstacle {
     super(x,y);
     this.width = 80;
     this.height = 20;
-    this.speed = 50;
+    this.speed = 30;
   }
 
   display() {

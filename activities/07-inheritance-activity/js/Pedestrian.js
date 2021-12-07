@@ -49,7 +49,7 @@ class Pedestrian {
     push();
     fill(200,50,50);
     noStroke();
-    ellipse(this.x,this.y,this.size);
+    ellipse(this.x,this.y, this.size);
     pop();
   }
 }

@@ -11,12 +11,20 @@ class Player {
   };
 
   checkHit(obstacle) {
- if (this.x > obstacle.x - obstacle.width/2 &&
-        this.x < obstacle.x + obstacle.width/2 &&
-        this.y > obstacle.y - obstacle.height/2 &&
-        this.y < obstacle.y + obstacle.height/2) {
+    if (this.x + size / 2 > obstacle.x - obstacle.width / 2 &&
+       this.x - size / 2 < obstacle.x + obstacle.width / 2 &&
+       this.y + size / 2 > obstacle.y - obstacle.height / 2 &&
+       this.y - size / 2 < obstacle.y + obstacle.height / 2) {
+       // They overlap, so change the smaller shape's color
+       this.alive = false;
+     };
+    /*
+    if (this.x > obstacle.x - obstacle.width/2 &&
+      this.x < obstacle.x + obstacle.width/2 &&
+      this.y > obstacle.y - obstacle.height/2 &&
+      this.y < obstacle.y + obstacle.height/2) {
       this.alive = false;
-    }
+    }*/
   };
 
   handleInput() {
