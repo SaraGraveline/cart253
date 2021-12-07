@@ -5,6 +5,8 @@ Sara Graveline
 This is the third game of my final game. I am coding the snake game where the player will have to collect the presents before the time runs out.
 There will be about 50 presents and after the player successfully collects all, she/he can go back to continue the main game.
 
+https://freesound.org/people/Leszek_Szary/sounds/133283/
+https://freesound.org/people/Mendenhall02/sounds/522720/
 */
 
 "use strict";
@@ -35,20 +37,24 @@ let obstacleImage;
 //Varibles for songs and sounds used during the different stages of the game.
 let startSong; //song plays when the page loads.
 let collectSound; //plays when the present is collected by the player.
-let gameOver; // when a player touches the walls.
+let gameWon; //
+let gameLost;
 
-
+let startPage;
+//let button;
 //Preload function that loads the songs, sound, image and gif of this game.
 function preload () {
   //starting song, play during collecting to gifts, and when the player dies
   startSong = loadSound("assets/sounds/All I Want For Christmas Is You.mp3");
   collectSound = loadSound("assets/sounds/collecting_gift.wav");
-  gameOver = loadSound("assets/sounds/endsound.mp3");
+  gameWon = loadSound("assets/sounds/endsound.mp3");
+  gameLost = loadSound("assets/sounds/oops.mp3");
 
   //present gif of a present and player's image of a gift train
   presentGif = loadImage('assets/images/present_cute.gif');
   playerImage = loadImage('assets/images/gift_train_border.png');
   obstacleImage = loadImage(`assets/images/brick wall.png`);
+  startPage = loadImage(`assets/images/startpage_game1.jpg`);
 };
 
 
@@ -110,10 +116,13 @@ function draw() {
 };
 
 function title() {
+  background(startPage);
+  /*
   displayText(`Please help Jungkook plan his first Christmas by collecting gifts!
 
     To start please click anywhere`);
     //reset();
+    */
 };
 
 
@@ -136,10 +145,15 @@ function simulation() {
 
   if (!player.alive){
     state = `dead`;
+    gameLost.play();
+    startSong.stop();
+
   }
 
-  if (player.score === 20) {
+  if (player.score === 2) {
     state = 'won';
+    gameWon.play();
+    startSong.stop();
   }
 
   //calls on the present's class to display the present gif.
@@ -153,13 +167,27 @@ function simulation() {
 };
 
 function won() {
-  displayText(`Thank you so much for your help!
-
-    `);
+  startSong.stop();
+  background(102, 255, 102);
   displayText(`SCORE = ` +player.score);
+
+  displayText(
+    `Thank you so much for collecting 20 gift for me!
+
+    Now let's move on to the next game! Double click it to start the game.`);
+
+  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Prototype_main_game', 'Matching game');
+  a.position(width/2.1, height/1.7);
+
+/*
+  button = createButton('Start Game');
+  button.position(width/3, height/1.7)
+  button.mousePressed(startGame);
+  */
 };
 
 function dead() {
+  background(255, 51, 51);
   displayText(`Oh Noooo! Please try again!
 
   `);
@@ -171,23 +199,18 @@ function displayText(string) {
   textAlign(CENTER, CENTER);
   textSize(32);
   noStroke();
-  fill(255, 0, 150);
+  fill(255);
   text(string, width/2, height/2);
   pop();
 };
 
-function keyPressed() {
+function mousePressed() {
+  startSong.play();
   if (state === `title`) {
     state = `simulation`;
-//  } else if (state === `won`) {
-  //  state = `next`;
-  //} else if(state === `dead`) {
-  //  state = `title`;
   };
 };
-
 /*
-function reset () {
-  state == `title`;
-};
-*/
+function startGame() {
+	open('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Prototype_main_game');
+}*/

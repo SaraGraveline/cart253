@@ -14,6 +14,8 @@ let silentNight; //the song
 let bounce = []; //rhythm to the song
 let base; //for the get level p5.js
 
+//let button;
+
 /**
 This function loads the silent night mp3 song from the sound assets folder.
 */
@@ -27,19 +29,34 @@ It also plays the song as the page load and plus the base varible.
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Collecting%20gifts/', 'Matching game');
+  a.position(width/50, height/8);
+  /*
+  button = createButton('Start Game');
+  button.position(width/50, height/8)
+  button.mousePressed(startGame);
+*/
  // silentNight.play();
   base = new p5.Amplitude(); //from p5.js
+
+
 };
 
-function mousePressed() {
+function keyPressed() {
   silentNight.play();
-}
+};
+
 
 /**
 This function draws random strokes colors for the circles, bounces all the circles, and the movement of the circle with mouse.
 */
 function draw() {
   background(0); //black color background
+
+  displayText(`Finally, it's christmas!! Time to relax and have fun.
+Press any key one time to relax and
+whenever ready press this button to start the game.`);
 
   let vol = base.getLevel();
   bounce.push(vol);
@@ -65,4 +82,21 @@ function draw() {
   if (bounce.length > 180) {
     bounce.splice(0, 1);
   };
+
 };
+
+function displayText(string) {
+  push();
+  textAlign(LEFT);
+  textSize(20);
+  noStroke();
+  fill(60);
+  text(string, width/50, height/20);
+  pop();
+};
+
+/*
+function startGame() {
+	open('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Collecting%20gifts/');
+}
+*/
