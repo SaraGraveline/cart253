@@ -130,6 +130,15 @@ function simulation() {
   player.move();
   player.display();
 
+
+  //draws the static background with loop and x and y variable.
+  for (let j = 0; j < 1000; j++) {
+    let x = random(0, width);
+    let y = random(0, height);
+    stroke(0);
+    point(x,y);
+  };
+
   //calls on the obstacle's class.
   for (let i = 0; i < obstacles.length; i++) {
     let obstacle = obstacles[i];
