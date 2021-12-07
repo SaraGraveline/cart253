@@ -7,6 +7,7 @@ class Player {
     this.vx = 0;
     this.vy = 0;
     this.alive = true;
+    this.score = 0;
 
   };
 
@@ -18,13 +19,6 @@ class Player {
        // They overlap, so change the smaller shape's color
        this.alive = false;
      };
-    /*
-    if (this.x > obstacle.x - obstacle.width/2 &&
-      this.x < obstacle.x + obstacle.width/2 &&
-      this.y > obstacle.y - obstacle.height/2 &&
-      this.y < obstacle.y + obstacle.height/2) {
-      this.alive = false;
-    }*/
   };
 
   handleInput() {
@@ -52,6 +46,7 @@ class Player {
     let d = dist(this.x, this.y, present.x, present.y);
     if (d<1){
       this.total++;
+      player.score = player.score + 1;
       return true;
     } else {
       return false;

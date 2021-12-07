@@ -117,7 +117,7 @@ function title() {
   displayText(`Please help Jungkook plan his first Christmas by collecting gifts!
 
     To start please click anywhere`);
-    reset();
+    //reset();
 };
 
 
@@ -142,7 +142,7 @@ function simulation() {
     state = `dead`;
   }
 
-  if (player.score === 50) {
+  if (player.score === 20) {
     state = 'won';
   }
 
@@ -157,11 +157,17 @@ function simulation() {
 };
 
 function won() {
-  displayText(`Thank you so much for your help!`);
+  displayText(`Thank you so much for your help!
+
+    `);
+  displayText(`SCORE = ` +player.score);
 };
 
 function dead() {
-  displayText(`Oh Noooo! Please try again!`);
+  displayText(`Oh Noooo! Please try again!
+
+  `);
+    displayText(`SCORE = ` +player.score);
 };
 
 function displayText(string) {
@@ -177,11 +183,15 @@ function displayText(string) {
 function mousePressed() {
   if (state === `title`) {
     state = `simulation`;
-  } else if(state === `dead`) {
-    state = `title`;
+//  } else if (state === `won`) {
+  //  state = `next`;
+  //} else if(state === `dead`) {
+  //  state = `title`;
   };
 };
 
+/*
 function reset () {
-  state === `title`;
+  state == `title`;
 };
+*/
