@@ -41,6 +41,8 @@ let gameWon; //
 let gameLost;
 
 let startPage;
+let deadStateImage;
+let wonStateImage;
 //let button;
 //Preload function that loads the songs, sound, image and gif of this game.
 function preload () {
@@ -55,6 +57,8 @@ function preload () {
   playerImage = loadImage('assets/images/gift_train_border.png');
   obstacleImage = loadImage(`assets/images/brick wall.png`);
   startPage = loadImage(`assets/images/startpage_game1.jpg`);
+  deadStateImage = loadImage(`assets/images/deadState_page_game1.jpg`);
+  wonStateImage = loadImage(`assets/images/wonstate_game1.jpg`);
 };
 
 
@@ -99,7 +103,7 @@ function setup() {
 //Draws the background color and defines the different states of this game: Title, simulation, success, dead and hidden.
 function draw() {
   //Draws the light blue background colors
-  background(204, 255, 255);
+  background(255);
 
   if (state === `title`) {
     title();
@@ -150,7 +154,7 @@ function simulation() {
 
   }
 
-  if (player.score === 2) {
+  if (player.score === 5) {
     state = 'won';
     gameWon.play();
     startSong.stop();
@@ -168,30 +172,26 @@ function simulation() {
 
 function won() {
   startSong.stop();
-  background(102, 255, 102);
-  displayText(`SCORE = ` +player.score);
+  background(wonStateImage);
+  push();
+  textAlign(CENTER, CENTER);
+  textSize(32);
+  noStroke();
+  fill(254, 249, 209);
+  text(`Score = ` +player.score, width/5.5, height/6);
+  pop();
 
-  displayText(
-    `Thank you so much for collecting 20 gift for me!
+  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Prototype_main_game', 'Double Click here to start game 2!');
+  a.position(width/8, height/1.15);
 
-    Now let's move on to the next game! Double click it to start the game.`);
 
-  let a = createA('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Prototype_main_game', 'Matching game');
-  a.position(width/2.1, height/1.7);
-
-/*
-  button = createButton('Start Game');
-  button.position(width/3, height/1.7)
-  button.mousePressed(startGame);
-  */
 };
 
 function dead() {
-  background(255, 51, 51);
-  displayText(`Oh Noooo! Please try again!
+  startSong.stop();
+  background(deadStateImage);
 
-  `);
-    displayText(`SCORE = ` +player.score);
+    displayText(`Score = ` +player.score);
 };
 
 function displayText(string) {
@@ -199,8 +199,8 @@ function displayText(string) {
   textAlign(CENTER, CENTER);
   textSize(32);
   noStroke();
-  fill(255);
-  text(string, width/2, height/2);
+  fill(254, 249, 209);
+  text(string, width/1.28, height/1.74);
   pop();
 };
 
@@ -210,7 +210,3 @@ function mousePressed() {
     state = `simulation`;
   };
 };
-/*
-function startGame() {
-	open('https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Prototype_main_game');
-}*/
