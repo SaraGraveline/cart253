@@ -193,8 +193,8 @@ function mousePressed (){
 //this function resets the game.
 function reset(){
   player.state = 0;
-  player.speed = 1;
-  player.y = -2;
+  //player.speed = 1;
+  //player.y = -2;
 };
 
 //Thank you and have fun playing this game! :):)
