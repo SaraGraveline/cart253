@@ -1,4 +1,9 @@
-# E6 - Make Some Noise
+# Project 2: Game 4_ ending
 Sara Graveline
 
-This exercise is to explore sounds in p5.js. Through this exercise, I created a sound cursor which I use in my final project. Because my final project theme is Christmas, I used the song silent night. As the song starts, the circles starts to bounce with the rhythm of the song. To create more Christmas environment, I used random function on the stroke of these circles. This cursor will be used on a landing page and the ending page of the game where the user will have to click on different buttons.
+This game is same as the beginning but only the display test is changed to words of goodbye. I wanted to do a fully own game with matching color but I ran out of time and this is what I can do.
+We learned so much this semester so its hard to grab to everything when you are slow learner.
+
+This again provide as alone space for the user to take their quick break by watch the circles dance to the slient night.
+
+Merry Christmas and Happy New Year!!.
