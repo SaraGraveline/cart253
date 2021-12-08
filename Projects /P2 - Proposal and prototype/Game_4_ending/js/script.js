@@ -54,9 +54,7 @@ function draw() {
   background(0);
 
   //the instruction of what to do and what this is. This calls upon display text function.
-  displayText(`Finally, it's Christmas!! Time to relax and have fun.
-Press any key one time to relax and
-whenever ready press the link below to start the game.`);
+  displayText(`I hope you enjoyed playing these games and are motivited to do something fun during christmas.`);
 
   let vol = base.getLevel();
   bounce.push(vol);
