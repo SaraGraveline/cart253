@@ -241,7 +241,5 @@ function reset() {
   ornaments.speed = 1;
   ornaments.y = -2;
   ornaments.score = 0;
-  startSong.stop();
-};
 
-//Thank you and have fun playing this game! :):)
+};
