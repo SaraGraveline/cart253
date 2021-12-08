@@ -158,7 +158,7 @@ function simulation() {
   };
 
   //if the player has 20 gift/score, the game is won with a gamewon music and no start song.
-  if (player.score === 2) {
+  if (player.score === 20) {
     state = "won";
     gameWon.play();
     startSong.stop();
