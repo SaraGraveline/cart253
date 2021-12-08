@@ -9,15 +9,8 @@ The main theme of this game is to help Jungkook with christmax by playing only t
 Otherwise, the player will have to complete more games depending on how many time he/she gets 7 wrong cards continuously.
 
 credits - p5js.org - reference, Fill rect with image by jeremydouglass, codepen.io memory by rustyrobison, khanacademy.org by pamela
-
 */
 
-/*       plan
-  . write code for seeing two cards together
-  . add images
-  . add sound
-
-*/
 "use strict"
 //rows and columns of cards
 let snow; //bg image

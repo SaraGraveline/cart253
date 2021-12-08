@@ -34,7 +34,7 @@ let ornamentsImage;
 let hand;
 
 //Variable for the screen, the function is to switch between start, middle and end screens.
-let state = `won`;
+let state = `title`;
 
 //Variable for ornaments/non-user controled.
 let ornaments = {
