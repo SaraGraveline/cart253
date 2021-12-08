@@ -7,9 +7,10 @@ To win, the player needs to catch 30. However, if any of ornaments touches the g
 Because I used different classes in my first game - collecting gifts, so I decided to go with the first method we learned, in the start of this class.
 
 Credits:
-- For loadsound credits check the sound readme file.
-- Snake Game by Lllucas = https://editor.p5js.org/Lllucas/sketches/leC95Xvzk
-- Traffic with OOP States by pippinbarr = https://editor.p5js.org/pippinbarr/sketches/OAO9tp_gw
+- start songs = https://gospelmetrics.com/jingle-bells-mp3-download-lyrics-christmas-songs-carols/
+- game over = https://freesound.org/people/Mendenhall02/sounds/522720/
+- Jungkook image = https://www.pngitem.com/middle/Jbwiih_cookie-bt-bts-jungkook-bt21-cooky-hd-png/
+- for hand effect = https://editor.p5js.org/mrbombmusic/sketches/Sy7H6GmDm
 */
 
 "use strict";
@@ -33,7 +34,7 @@ let ornamentsImage;
 let hand;
 
 //Variable for the screen, the function is to switch between start, middle and end screens.
-let state = `title`;
+let state = `won`;
 
 //Variable for ornaments/non-user controled.
 let ornaments = {
@@ -43,7 +44,7 @@ let ornaments = {
   speed: 2,
   score: 0,
 };
-
+let button;
 //Variable for the hand and mouse movement.
 let mouse = [];
 let a = 0;
@@ -61,9 +62,7 @@ function preload() {
 
   //background images for the game 2
   titleImage = loadImage(`assets/images/startpage_game2.jpg`);
-  simulationImage = loadImage(
-    `assets/images/simulation _gradient_Image_game2.jpg`
-  );
+  simulationImage = loadImage(`assets/images/simulation _gradient_Image_game2.jpg`);
   deadImage = loadImage(`assets/images/deadstate_image .jpg`);
   wonImage = loadImage(`assets/images/wonstate_image.jpg`);
 
@@ -73,7 +72,7 @@ function preload() {
 
   //the astron font
   astron = loadFont(`assets/fonts/Astron.ttf`); //Astron font for all the text.
-}
+};
 
 //This sets the basic things that are needed for this game like canvas, ornaments's x and size and also noCursor throughout the whole program.
 function setup() {
@@ -83,7 +82,7 @@ function setup() {
   //randomizes the location of the x axis and the size of the circle.
   ornaments.x = random(width);
   ornaments.size = random(40, 80);
-}
+};
 
 //This function displays and creates the whole game.
 function draw() {
@@ -97,7 +96,7 @@ function draw() {
   } else if (state === `dead`) {
     dead();
   }
-;
+};
 
 //This function is for the start screen/ intro screen.
 function title() {
@@ -201,25 +200,23 @@ function displayText(string) {
   pop();
 };
 
-//display text function for won state function with no start song and link to next game.
+//display text function for won state function with no start song.
 function won() {
   startSong.stop();
   background(wonImage);
-  push();
+
   textAlign(CENTER, CENTER);
   textSize(30);
   noStroke();
   fill(255);
   text(`Score = ` + ornaments.score, width / 1.23, height / 1.46);
   cursor();
-  pop();
 
-  //link fot the next week
-  let a = createA(
-    "https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_3_Match_Relatives_list%20/",
-    "Double Click here to start game 2!"
-  );
-  a.position(width / 1.35, height / 1.1); //link postion
+//link for the next game//
+  button = createButton('Start Game');
+  button.position(width/1.23, height/1.12)
+  button.mousePressed(startGame);
+
 };
 
 //this function is for moving from one screen to the next whenever the mouse is pressed.
@@ -232,8 +229,8 @@ function mousePressed() {
     //if the ornaments is on the end screen - game over, then she/he will go the state screen if the mouse is pressed.
   } else if (state === `dead`) {
     state = `title`;
-  };
-};
+  }
+}
 
 //this function resets the game.
 function reset() {
@@ -241,4 +238,10 @@ function reset() {
   ornaments.speed = 1;
   ornaments.y = -2;
   ornaments.score = 0;
+  startSong.stop();
 }
+function startGame() {
+  location = `https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_3_Match_Relatives_list%20`;
+}
+
+//Thank you and have fun playing this game! :):)
