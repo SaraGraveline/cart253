@@ -65,8 +65,8 @@ function draw() {
   background(snow); //background image
 
 //link for the next game//
-  button = createButton('Start Game');
-  button.position(width/1.23, height/1.12)
+  button = createButton('You do not have to finish this game now. Click here to see the ending of this project.');
+  button.position(width/1.4, height/1.04)
   button.mousePressed(startGame);
 
 
@@ -75,6 +75,11 @@ function draw() {
     cards[i].display();
   };
 };
+
+function startGame() {
+  location = `https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_4_ending`;
+};
+
 
 function Card (x, y, size, faces, match) {
   this.x = x;
@@ -137,7 +142,7 @@ function mouseClicked () {
 };
 
 function startGame() {
-  location = `https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_3_Match_Relatives_list%20`;
+  location = `https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_4_ending`;
 }
 
 //thank you
