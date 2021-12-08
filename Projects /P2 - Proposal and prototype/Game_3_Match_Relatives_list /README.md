@@ -1,4 +1,5 @@
-# Help Jungkook with Christmas - Project 2
+Game 3 _ Matching Relative Colors
+Sara Graveline
 
-The main theme of this game is to help Jungkook with christmax by playing only the main game if player doesn't flip the wrong cards 7 times.
-Otherwise, the player will have to complete more games depending on how many time he/she gets 7 wrong cards continuously.
+This game, I couldn't complete because I ran out of time. However, the main idea is here where the user would try to match the cards to find a matching pairing.
+Also there is nothing changed here since the last feedback and alot of code is from codepen.
