@@ -241,5 +241,4 @@ function reset() {
   ornaments.speed = 1;
   ornaments.y = -2;
   ornaments.score = 0;
-
-};
+}
