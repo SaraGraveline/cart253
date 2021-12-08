@@ -1,13 +1,13 @@
 /**
-Project 2: Game 0 - Relax
+Project 2: Game 4_ ending
 Sara Graveline
 
-This game is the beginning of the final 3 games that the user will be playing to help jungkook throw a christmas party.
-This relax game is the starting point because with everyhting that we went through with covid, being online, and not being able to live a normal life is very hard.
-So this game lets the user take a few minutes to just relax and breath without any concerns or worry. And whenever the user want to go on and start playing the game, she/he can click the link whcih leads to the game 1 - collecting gifts.
+This game is same as the beginning but only the display test is changed to words of goodbye. I wanted to do a fully own game with matching color but I ran out of time and this is what I can do.
+We learned so much this semester so its hard to grab to everything when you are slow learner.
 
-The main goal of game 0 is to play with sounds. So I created a sound cursor, inspried by Lllucas's sound visualization.
-When the user presses any key on their keyword, silent night starts playing and the circles of the cursor starts to bounce with the rhythm of the song.
+This again provide as alone space for the user to take their quick break by watch the circles dance to the slient night.
+
+Merry Christmas and Happy New Year!!.
 
 Credits: Sound visualization by Lllucas = https://editor.p5js.org/Lllucas/sketches/dDxXHIbtD
         CreateA = https://p5js.org/reference/#/p5/createA
@@ -31,12 +31,6 @@ With a createA I linked my games togther. SO this CreateA links is for game 1-co
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  let a = createA(
-    "https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_1_Collect_gifts/",
-    "Start Game"
-  );
-  a.position(width / 50, height / 8);
-
   base = new p5.Amplitude(); //from p5.js
 }
 
@@ -54,7 +48,13 @@ function draw() {
   background(0);
 
   //the instruction of what to do and what this is. This calls upon display text function.
-  displayText(`I hope you enjoyed playing these games and are motivited to do something fun during christmas.`);
+  displayText(`I hope you enjoyed playing these games and
+are motivited to do something fun during Christmas.
+Thank you behalf Jungkook and Me!
+Merry Christmas and Happy New Year!!
+
+Again, if you want to relax, just press any key
+and get hypnotized to feel better.`);
 
   let vol = base.getLevel();
   bounce.push(vol);
