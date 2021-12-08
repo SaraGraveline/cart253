@@ -1,4 +1,9 @@
-# E6 - Make Some Noise
+# Project 2: Game 0 - Relax
 Sara Graveline
 
-This exercise is to explore sounds in p5.js. Through this exercise, I created a sound cursor which I use in my final project. Because my final project theme is Christmas, I used the song silent night. As the song starts, the circles starts to bounce with the rhythm of the song. To create more Christmas environment, I used random function on the stroke of these circles. This cursor will be used on a landing page and the ending page of the game where the user will have to click on different buttons.
+This game is the beginning of the final 3 games that the user will be playing to help Jungkook throw a Christmas party.
+This relax game is the starting point because with everything that we went through with covid, being online, and not being able to live a normal life is very hard.
+So this game lets the user take a few minutes to just relax and breath without any concerns or worry. And whenever the user want to go on and start playing the game, she/he can click the link which leads to the game 1 - collecting gifts.
+
+The main goal of game 0 is to play with sounds. So I created a sound cursor, inspired by Lllucas's sound visualization.
+When the user presses any key on their keyword, silent night starts playing and the circles of the cursor starts to bounce with the rhythm of the song.
