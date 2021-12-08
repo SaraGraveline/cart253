@@ -31,6 +31,8 @@ let pair = 0; // if the 2 cards are the same colors or not.
 let one;
 let two;
 
+let button;
+
 
 //loads the background Image
 //
@@ -61,6 +63,12 @@ function setup() {
 //
 function draw() {
   background(snow); //background image
+
+//link for the next game//
+  button = createButton('Start Game');
+  button.position(width/1.23, height/1.12)
+  button.mousePressed(startGame);
+
 
   //drawing the cards with the function display
   for (let i = 0; i < cards.length; i++) {
@@ -127,5 +135,9 @@ function mouseClicked () {
     click = 0;
   }
 };
+
+function startGame() {
+  location = `https://saragraveline.github.io/cart253/Projects%20/P2%20-%20Proposal%20and%20prototype/Game_3_Match_Relatives_list%20`;
+}
 
 //thank you
