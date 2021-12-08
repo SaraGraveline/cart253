@@ -18,11 +18,7 @@ let wonImage;
 let ornamentsImage; //
 let hand; //
 
-//Varibles for songs and sounds used during the different stages of the game.
-let startSong; //song plays when the page loads.
-let collectSound; //plays when the present is collected by the player.
-let gameWon; //when the game is won
-let gameLost; //when the game is lost
+
 
 //Variable for the screen, the function is to switch between start, middle and end screens.
 let state = `title`;
@@ -43,10 +39,13 @@ let a = 0;
 //Variable for the font, Astron by Mason Mulcahy.
 let astron;
 
+
+let collectSound;
+let gameWon; //when the game is won
+let gameLost; //when the game is lost
+
 //Loads the images and font for each element that requires an image or font.
 function preload() {
-  //starting song is `all i want for Christmas is you`, CollectSound plays when a gift is collected, gameWon plays when the user wins and gameLost is when the obstacle touches the gift train.
-  startSong = loadSound("assets/sounds/All I Want For Christmas Is You.mp3");
   collectSound = loadSound("assets/sounds/collecting_gift.wav");
   gameWon = loadSound("assets/sounds/endsound.mp3");
   gameLost = loadSound("assets/sounds/oops.mp3");
@@ -116,7 +115,6 @@ function simulation() {
   if (ornaments.y > height) {
     state = `dead`; //end screen
     gameLost.play();
-    startSong.stop();
   }
 
   //if statement for when the circle hits the bottom, a new random size, speed, and on different x axis, a new ornaments appears.
@@ -142,7 +140,7 @@ function simulation() {
     collectSound.play();
   }
 
-  //this is for the user hand/user-controlled.
+  //this is for the ornaments hand/user-controlled.
   mouse.push([mouseX, mouseY]);
   for (let i = 0; i < mouse.length; i++) {
     noStroke();
@@ -159,7 +157,7 @@ function simulation() {
   if (ornaments.score === 30) {
     state = `won`;
     gameWon.play();
-    startSong.stop();
+
   }
 }
 
@@ -167,7 +165,6 @@ function simulation() {
 function dead() {
   background(deadImage); //background image
   displayText(`Score = ` + ornaments.score);
-  startSong.stop();
 }
 
 //display text function for dead state function.
@@ -201,7 +198,6 @@ function won() {
 
 //this function is for moving from one screen to the next whenever the mouse is pressed.
 function mousePressed() {
-  startSong.play();
   //if the ornaments is on the start screen and she/he presses the mouse, they will go to the play mode screen(simulation state).
   if (state === `title`) {
     state = `simulation`;
